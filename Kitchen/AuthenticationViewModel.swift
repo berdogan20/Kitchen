@@ -28,9 +28,7 @@ class AuthenticationViewModel: ObservableObject {
   @Published var email: String = ""
   @Published var password: String = ""
   @Published var confirmPassword: String = ""
-
   @Published var flow: AuthenticationFlow = .login
-
   @Published var isValid: Bool  = false
   @Published var authenticationState: AuthenticationState = .unauthenticated
   @Published var errorMessage: String = ""

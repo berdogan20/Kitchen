@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7173D93D2B3FF4470030FFA9 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D93C2B3FF4470030FFA9 /* CategoriesView.swift */; };
+		7173D93F2B3FF4680030FFA9 /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D93E2B3FF4680030FFA9 /* UIApplication+RootViewController.swift */; };
+		7173D9452B3FFCDF0030FFA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7173D9442B3FFCDF0030FFA9 /* GoogleService-Info.plist */; };
 		719BAAF72B31B11200C823D2 /* KitchenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BAAF62B31B11200C823D2 /* KitchenApp.swift */; };
 		719BAAF92B31B11200C823D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BAAF82B31B11200C823D2 /* ContentView.swift */; };
 		719BAAFB2B31B11400C823D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719BAAFA2B31B11400C823D2 /* Assets.xcassets */; };
-		719BAAFE2B31B11400C823D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719BAAFD2B31B11400C823D2 /* Preview Assets.xcassets */; };
 		71AEE8262B3D92EC002DF2D4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE8252B3D92EC002DF2D4 /* FirebaseAnalytics */; };
 		71AEE8282B3D92EC002DF2D4 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE8272B3D92EC002DF2D4 /* FirebaseAnalyticsOnDeviceConversion */; };
 		71AEE82A2B3D92EC002DF2D4 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE8292B3D92EC002DF2D4 /* FirebaseAnalyticsSwift */; };
 		71AEE82C2B3D92EC002DF2D4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE82B2B3D92EC002DF2D4 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		71AEE82E2B3D92EC002DF2D4 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE82D2B3D92EC002DF2D4 /* FirebaseAppCheck */; };
-		71AEE8952B3DAAE5002DF2D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71AEE8942B3DAAE5002DF2D4 /* GoogleService-Info.plist */; };
 		71AEE8982B3DAAF2002DF2D4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE8972B3DAAF2002DF2D4 /* GoogleSignIn */; };
 		71AEE89A2B3DAAF2002DF2D4 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 71AEE8992B3DAAF2002DF2D4 /* GoogleSignInSwift */; };
 		71AEE89D2B3DAB49002DF2D4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AEE89C2B3DAB49002DF2D4 /* LoginView.swift */; };
@@ -34,12 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7173D93C2B3FF4470030FFA9 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		7173D93E2B3FF4680030FFA9 /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
+		7173D9442B3FFCDF0030FFA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		719BAAF32B31B11200C823D2 /* Kitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		719BAAF62B31B11200C823D2 /* KitchenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenApp.swift; sourceTree = "<group>"; };
 		719BAAF82B31B11200C823D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		719BAAFA2B31B11400C823D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		719BAAFD2B31B11400C823D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		71AEE8942B3DAAE5002DF2D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71AEE89B2B3DAB14002DF2D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71AEE89C2B3DAB49002DF2D4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		71AEE89E2B3DAB5B002DF2D4 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 		719BAAEA2B31B11200C823D2 = {
 			isa = PBXGroup;
 			children = (
-				71AEE8942B3DAAE5002DF2D4 /* GoogleService-Info.plist */,
 				719BAAF52B31B11200C823D2 /* Kitchen */,
 				719BAAF42B31B11200C823D2 /* Products */,
 				71AEE8B22B3DAD63002DF2D4 /* Frameworks */,
@@ -98,23 +99,17 @@
 				719BAAF62B31B11200C823D2 /* KitchenApp.swift */,
 				719BAAF82B31B11200C823D2 /* ContentView.swift */,
 				719BAAFA2B31B11400C823D2 /* Assets.xcassets */,
-				719BAAFC2B31B11400C823D2 /* Preview Content */,
+				7173D9442B3FFCDF0030FFA9 /* GoogleService-Info.plist */,
 				71AEE89C2B3DAB49002DF2D4 /* LoginView.swift */,
 				71AEE89E2B3DAB5B002DF2D4 /* SignupView.swift */,
 				71AEE8A02B3DAB6F002DF2D4 /* UserProfileView.swift */,
 				71AEE8A22B3DAB7E002DF2D4 /* AuthenticationView.swift */,
 				71AEE8A42B3DAB8D002DF2D4 /* AuthenticatedView.swift */,
 				71AEE8A62B3DAB9A002DF2D4 /* AuthenticationViewModel.swift */,
+				7173D93C2B3FF4470030FFA9 /* CategoriesView.swift */,
+				7173D93E2B3FF4680030FFA9 /* UIApplication+RootViewController.swift */,
 			);
 			path = Kitchen;
-			sourceTree = "<group>";
-		};
-		719BAAFC2B31B11400C823D2 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				719BAAFD2B31B11400C823D2 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		71AEE8B22B3DAD63002DF2D4 /* Frameworks */ = {
@@ -201,9 +196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				719BAAFE2B31B11400C823D2 /* Preview Assets.xcassets in Resources */,
 				719BAAFB2B31B11400C823D2 /* Assets.xcassets in Resources */,
-				71AEE8952B3DAAE5002DF2D4 /* GoogleService-Info.plist in Resources */,
+				7173D9452B3FFCDF0030FFA9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +213,8 @@
 				71AEE8A32B3DAB7E002DF2D4 /* AuthenticationView.swift in Sources */,
 				71AEE8A52B3DAB8D002DF2D4 /* AuthenticatedView.swift in Sources */,
 				71AEE8A72B3DAB9A002DF2D4 /* AuthenticationViewModel.swift in Sources */,
+				7173D93F2B3FF4680030FFA9 /* UIApplication+RootViewController.swift in Sources */,
+				7173D93D2B3FF4470030FFA9 /* CategoriesView.swift in Sources */,
 				71AEE89D2B3DAB49002DF2D4 /* LoginView.swift in Sources */,
 				719BAAF92B31B11200C823D2 /* ContentView.swift in Sources */,
 				719BAAF72B31B11200C823D2 /* KitchenApp.swift in Sources */,
@@ -352,6 +348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Kitchen/Preview Content\"";
@@ -382,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Kitchen/Preview Content\"";

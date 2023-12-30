@@ -6,7 +6,6 @@
 //
 import SwiftUI
 
-// see https://michael-ginn.medium.com/creating-optional-viewbuilder-parameters-in-swiftui-views-a0d4e3e1a0ae
 extension AuthenticatedView where Unauthenticated == EmptyView {
   init(@ViewBuilder content: @escaping () -> Content) {
     self.unauthenticated = nil
@@ -47,6 +46,8 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
           viewModel.reset()
           presentingLoginScreen.toggle()
         }
+        .padding()
+        .foregroundColor(.green)
       }
       .sheet(isPresented: $presentingLoginScreen) {
         AuthenticationView()

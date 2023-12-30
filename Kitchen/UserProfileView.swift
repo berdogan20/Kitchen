@@ -41,9 +41,9 @@ struct UserProfileView: View {
               .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
             Spacer()
           }
-          Button(action: {}) {
+          /*Button(action: {}) {
             Text("edit")
-          }
+          }*/
         }
       }
       .listRowBackground(Color(UIColor.systemGroupedBackground))

@@ -47,6 +47,7 @@
 		A653A9962B40C1E30026D78C /* RecipeDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653A9952B40C1E30026D78C /* RecipeDetailDataSource.swift */; };
 		A653A99B2B40C24D0026D78C /* RecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653A99A2B40C24D0026D78C /* RecipeDetail.swift */; };
 		A653A99D2B40C2A60026D78C /* RecipeDetailDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653A99C2B40C2A60026D78C /* RecipeDetailDataSourceDelegate.swift */; };
+		A6E7CD8A2B44A382004A8A2E /* LongText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E7CD892B44A382004A8A2E /* LongText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		A653A9952B40C1E30026D78C /* RecipeDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailDataSource.swift; sourceTree = "<group>"; };
 		A653A99A2B40C24D0026D78C /* RecipeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetail.swift; sourceTree = "<group>"; };
 		A653A99C2B40C2A60026D78C /* RecipeDetailDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailDataSourceDelegate.swift; sourceTree = "<group>"; };
+		A6E7CD892B44A382004A8A2E /* LongText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				7173D9502B4007180030FFA9 /* LinkText.swift */,
+				A6E7CD892B44A382004A8A2E /* LongText.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				7173D9512B4007180030FFA9 /* LinkText.swift in Sources */,
 				7173D9602B400FF10030FFA9 /* RecipesByCategoryViewModel.swift in Sources */,
 				719BAAF72B31B11200C823D2 /* KitchenApp.swift in Sources */,
+				A6E7CD8A2B44A382004A8A2E /* LongText.swift in Sources */,
 				A653A99B2B40C24D0026D78C /* RecipeDetail.swift in Sources */,
 				7173D95E2B400E4E0030FFA9 /* RecipesByCategory.swift in Sources */,
 				7173D94A2B4006BA0030FFA9 /* Radius.swift in Sources */,

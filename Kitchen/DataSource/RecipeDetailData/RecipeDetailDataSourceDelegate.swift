@@ -9,4 +9,5 @@ import Foundation
 
 protocol RecipeDetailDataSourceDelegate: AnyObject {
     func RecipeDetailIsLoaded(recipeDetail: RecipeDetail)
+    func RecipeStepsAreLoaded(recipeSteps: [AnalyzedSteps])
 }

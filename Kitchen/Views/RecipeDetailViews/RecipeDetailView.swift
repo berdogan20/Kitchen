@@ -10,16 +10,17 @@ import SwiftUI
 struct RecipeDetailView: View {
     @StateObject private var viewModel = RecipeDetailViewModel()
     private let recipeID: Int // to instantiate a recipe screen, someone would need to inject the recipe ID, as the recipe ID is enough to call the API
-
+    
     init(recipeID: Int) {
         self.recipeID = recipeID
     }
-
+    
     var body: some View {
-        if viewModel.isLoading {
+        if viewModel.detailIsLoading || viewModel.stepsAreLoading {
             Loading(text: "The recipe information is coming!")
                 .onAppear {
                     viewModel.loadRecipeDetail(recipeID: recipeID)
+                    viewModel.loadSteps(recipeID: recipeID)
                 }
         } else {
             VStack(spacing: Spacing.spacing_2) {
@@ -68,7 +69,7 @@ struct RecipeDetailView: View {
 // TODO: another model. Put the general description as another sheet, find similar
 // TODO: recipes, and also print the ingredients list of the recipe.
         #Preview {
-            RecipeDetailView(recipeID: 716429)
+            RecipeDetailView(recipeID: 324694)
         }
 
 

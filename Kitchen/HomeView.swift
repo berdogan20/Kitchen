@@ -23,7 +23,8 @@ struct HomeView: View {
               .font(.title)
             Text("You need to be logged in to use this app.")
           } content: {
-            RecipesByCategoryView()
+            // RecipesByCategoryView()
+              SimilarRecipeView()
             Spacer()
           }
         }

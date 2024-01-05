@@ -1,24 +1,25 @@
 //
-//  RecipesByCategoryDataSource.swift
+//  SimilarRecipesDataSource.swift
 //  Kitchen
 //
-//  Created by beyza erdoğan on 30.12.2023.
+//  Created by beyza erdoğan on 5.01.2024.
 //
+
 import Foundation
 
-struct RecipesByCategoryDataSource {
+struct SimilarRecipesDataSource {
 
-    private let baseURL = "https://api.spoonacular.com/recipes/complexSearch?query="
-    var delegate: RecipesByCategoryDataSourceDelegate?
+    private let baseURL = "https://api.spoonacular.com/recipes/"
+    var delegate: SimilarRecipesDataSourceDelegate?
 
-    func loadRecipesByCategoryData(query: String, offset: Int, number: Int){
+    func loadSimilarRecipesData(recipeId: Int){
 
         // get shared URL session
         let session = URLSession.shared
 
         // create a URL
         // returns an optional String
-        guard let url = URL(string: "\(baseURL)\(query)&offset=\(offset)&number=\(number)&apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8") else {return}
+        guard let url = URL(string: "\(baseURL)\(recipeId)/similar?apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8&includeNutrition=true.") else {return}
 
         // create a URL request
         var request = URLRequest(url: url)
@@ -38,12 +39,12 @@ struct RecipesByCategoryDataSource {
 
             let decoder = JSONDecoder()
             do{
-                let recipesByCaregoryData = try decoder.decode(RecipesByCategory.self, from: data)
-                print(recipesByCaregoryData)
+                let similarRecipesData = try decoder.decode([SimilarRecipe].self, from: data)
+                print(similarRecipesData)
 
                 DispatchQueue.main.async {
                     // put to main thread
-                    delegate?.recipesByCategoryDataLoaded(data: recipesByCaregoryData)
+                    delegate?.similarRecipesDataLoaded(data: similarRecipesData)
                 }
             }
             catch{

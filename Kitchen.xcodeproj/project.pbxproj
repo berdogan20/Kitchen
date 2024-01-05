@@ -35,6 +35,11 @@
 		7123C80C2B47EC1D00C413F2 /* IngredientBasedSearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C80B2B47EC1D00C413F2 /* IngredientBasedSearchDataSource.swift */; };
 		7123C80E2B47EC2400C413F2 /* IngredientBasedSearchDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C80D2B47EC2400C413F2 /* IngredientBasedSearchDataSourceDelegate.swift */; };
 		7123C8102B47ED9D00C413F2 /* IngredientBasedSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C80F2B47ED9D00C413F2 /* IngredientBasedSearch.swift */; };
+		7123C8152B47F3ED00C413F2 /* RandomRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C8142B47F3ED00C413F2 /* RandomRecipeViewModel.swift */; };
+		7123C8172B47F3F600C413F2 /* RandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C8162B47F3F600C413F2 /* RandomRecipeView.swift */; };
+		7123C8192B47F40100C413F2 /* RandomRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C8182B47F40100C413F2 /* RandomRecipe.swift */; };
+		7123C81B2B47F41300C413F2 /* RandomRecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C81A2B47F41300C413F2 /* RandomRecipeDataSource.swift */; };
+		7123C81D2B47F41C00C413F2 /* RandomRecipeDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7123C81C2B47F41C00C413F2 /* RandomRecipeDataSourceDelegate.swift */; };
 		7173D93D2B3FF4470030FFA9 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D93C2B3FF4470030FFA9 /* CategoriesView.swift */; };
 		7173D93F2B3FF4680030FFA9 /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D93E2B3FF4680030FFA9 /* UIApplication+RootViewController.swift */; };
 		7173D9452B3FFCDF0030FFA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7173D9442B3FFCDF0030FFA9 /* GoogleService-Info.plist */; };
@@ -95,6 +100,11 @@
 		7123C80B2B47EC1D00C413F2 /* IngredientBasedSearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientBasedSearchDataSource.swift; sourceTree = "<group>"; };
 		7123C80D2B47EC2400C413F2 /* IngredientBasedSearchDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientBasedSearchDataSourceDelegate.swift; sourceTree = "<group>"; };
 		7123C80F2B47ED9D00C413F2 /* IngredientBasedSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientBasedSearch.swift; sourceTree = "<group>"; };
+		7123C8142B47F3ED00C413F2 /* RandomRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeViewModel.swift; sourceTree = "<group>"; };
+		7123C8162B47F3F600C413F2 /* RandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeView.swift; sourceTree = "<group>"; };
+		7123C8182B47F40100C413F2 /* RandomRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipe.swift; sourceTree = "<group>"; };
+		7123C81A2B47F41300C413F2 /* RandomRecipeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeDataSource.swift; sourceTree = "<group>"; };
+		7123C81C2B47F41C00C413F2 /* RandomRecipeDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeDataSourceDelegate.swift; sourceTree = "<group>"; };
 		7173D93C2B3FF4470030FFA9 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		7173D93E2B3FF4680030FFA9 /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
 		7173D9442B3FFCDF0030FFA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -190,13 +200,13 @@
 			path = SimilarRecipeViews;
 			sourceTree = "<group>";
 		};
-		7123C7E12B47DE6200C413F2 /* IngredientsDataSource */ = {
+		7123C7E12B47DE6200C413F2 /* IngredientsData */ = {
 			isa = PBXGroup;
 			children = (
 				7123C7E22B47DE7000C413F2 /* IngredientsDataSource.swift */,
 				7123C7E72B47E03400C413F2 /* IngredientsDataSourceDelegate.swift */,
 			);
-			path = IngredientsDataSource;
+			path = IngredientsData;
 			sourceTree = "<group>";
 		};
 		7123C7E42B47DF7900C413F2 /* IngredientBasedSearchModels */ = {
@@ -219,13 +229,39 @@
 			path = IngredientBasedSearchViews;
 			sourceTree = "<group>";
 		};
-		7123C80A2B47EC0D00C413F2 /* IngredientBasedSearchDataSource */ = {
+		7123C80A2B47EC0D00C413F2 /* IngredientBasedSearchData */ = {
 			isa = PBXGroup;
 			children = (
 				7123C80B2B47EC1D00C413F2 /* IngredientBasedSearchDataSource.swift */,
 				7123C80D2B47EC2400C413F2 /* IngredientBasedSearchDataSourceDelegate.swift */,
 			);
-			path = IngredientBasedSearchDataSource;
+			path = IngredientBasedSearchData;
+			sourceTree = "<group>";
+		};
+		7123C8112B47F3B600C413F2 /* RandomRecipeViews */ = {
+			isa = PBXGroup;
+			children = (
+				7123C8142B47F3ED00C413F2 /* RandomRecipeViewModel.swift */,
+				7123C8162B47F3F600C413F2 /* RandomRecipeView.swift */,
+			);
+			path = RandomRecipeViews;
+			sourceTree = "<group>";
+		};
+		7123C8122B47F3C800C413F2 /* RandomRecipeModels */ = {
+			isa = PBXGroup;
+			children = (
+				7123C8182B47F40100C413F2 /* RandomRecipe.swift */,
+			);
+			path = RandomRecipeModels;
+			sourceTree = "<group>";
+		};
+		7123C8132B47F3D100C413F2 /* RandomRecipeData */ = {
+			isa = PBXGroup;
+			children = (
+				7123C81A2B47F41300C413F2 /* RandomRecipeDataSource.swift */,
+				7123C81C2B47F41C00C413F2 /* RandomRecipeDataSourceDelegate.swift */,
+			);
+			path = RandomRecipeData;
 			sourceTree = "<group>";
 		};
 		7173D9462B40069C0030FFA9 /* DesignSystem */ = {
@@ -266,8 +302,9 @@
 		7173D9532B400C3C0030FFA9 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				7123C80A2B47EC0D00C413F2 /* IngredientBasedSearchDataSource */,
-				7123C7E12B47DE6200C413F2 /* IngredientsDataSource */,
+				7123C8132B47F3D100C413F2 /* RandomRecipeData */,
+				7123C80A2B47EC0D00C413F2 /* IngredientBasedSearchData */,
+				7123C7E12B47DE6200C413F2 /* IngredientsData */,
 				7123C7D22B47D10F00C413F2 /* SimilarRecipesData */,
 				A653A9942B40C1D30026D78C /* RecipeDetailData */,
 				7173D9542B400C500030FFA9 /* RecipesByCategoryData */,
@@ -287,6 +324,7 @@
 		7173D9592B400C8F0030FFA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7123C8122B47F3C800C413F2 /* RandomRecipeModels */,
 				7123C7E42B47DF7900C413F2 /* IngredientBasedSearchModels */,
 				7123C7D72B47D13800C413F2 /* SimilarRecipeModels */,
 				A653A9992B40C23D0026D78C /* RecipeDetailModels */,
@@ -306,6 +344,7 @@
 		7173D95B2B400CA00030FFA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7123C8112B47F3B600C413F2 /* RandomRecipeViews */,
 				7123C7E92B47E17700C413F2 /* IngredientBasedSearchViews */,
 				7123C7DA2B47D21F00C413F2 /* SimilarRecipeViews */,
 				A653A98F2B40C15F0026D78C /* RecipeDetailViews */,
@@ -497,6 +536,7 @@
 				7123C7E82B47E03400C413F2 /* IngredientsDataSourceDelegate.swift in Sources */,
 				7173D9562B400C750030FFA9 /* RecipesByCategoryDataSource.swift in Sources */,
 				7173D9482B4006AD0030FFA9 /* Spacing.swift in Sources */,
+				7123C8152B47F3ED00C413F2 /* RandomRecipeViewModel.swift in Sources */,
 				71AEE89F2B3DAB5B002DF2D4 /* SignupView.swift in Sources */,
 				71AEE8A32B3DAB7E002DF2D4 /* AuthenticationView.swift in Sources */,
 				7123C7E62B47DF8300C413F2 /* Ingredient.swift in Sources */,
@@ -519,10 +559,12 @@
 				7123C7ED2B47E19C00C413F2 /* IngredientsViewModel.swift in Sources */,
 				7173D93D2B3FF4470030FFA9 /* CategoriesView.swift in Sources */,
 				A653A99D2B40C2A60026D78C /* RecipeDetailDataSourceDelegate.swift in Sources */,
+				7123C8192B47F40100C413F2 /* RandomRecipe.swift in Sources */,
 				7123C80C2B47EC1D00C413F2 /* IngredientBasedSearchDataSource.swift in Sources */,
 				7123C7D92B47D18000C413F2 /* SimilarRecipes.swift in Sources */,
 				71AEE89D2B3DAB49002DF2D4 /* LoginView.swift in Sources */,
 				7123C7D62B47D12D00C413F2 /* SimilarRecipesDataSourceDelegate.swift in Sources */,
+				7123C81D2B47F41C00C413F2 /* RandomRecipeDataSourceDelegate.swift in Sources */,
 				7123C8092B47EC0600C413F2 /* IngredientBasedSearchViewModel.swift in Sources */,
 				719BAAF92B31B11200C823D2 /* HomeView.swift in Sources */,
 				7173D9512B4007180030FFA9 /* LinkText.swift in Sources */,
@@ -531,7 +573,9 @@
 				A6E7CD8A2B44A382004A8A2E /* LongText.swift in Sources */,
 				7123C7EB2B47E19400C413F2 /* IngredientsView.swift in Sources */,
 				7123C7E02B47D6F000C413F2 /* RecipeCardView.swift in Sources */,
+				7123C81B2B47F41300C413F2 /* RandomRecipeDataSource.swift in Sources */,
 				A653A99B2B40C24D0026D78C /* RecipeDetail.swift in Sources */,
+				7123C8172B47F3F600C413F2 /* RandomRecipeView.swift in Sources */,
 				7173D95E2B400E4E0030FFA9 /* RecipesByCategory.swift in Sources */,
 				7173D94A2B4006BA0030FFA9 /* Radius.swift in Sources */,
 			);

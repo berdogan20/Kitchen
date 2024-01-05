@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct IngredientsDataSource {
+class IngredientsDataSource {
 
     private let baseUrl = "https://spoonacular.com/application/frontend/downloads/ingredients.csv"
-    private var ingredients: Ingredients
+    @Published var ingredients: Ingredients = []
     var delegate: IngredientsDataSourceDelegate?
 
     func loadIngredientsData() {
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let url = URL(string: baseUrl) {
+            let task = URLSession.shared.dataTask(with: url) { [self] (data, response, error) in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                     return
@@ -34,13 +34,13 @@ struct IngredientsDataSource {
                         let columns = row.components(separatedBy: ";")
                         if columns.count >= 2 {
                             let ingredientName = columns[0]
-                            let ingredientID = columns[1]
-                            let ingredient = Ingredient(name: ingredientName, id: ingredientID)
+                            let ingredient = IngredientItem(name: ingredientName)
                             ingredients.append(ingredient)
                         }
                     }
-
-                    delegate?.ingredientsLoaded(data: ingredients)
+                    DispatchQueue.main.async {
+                        self.delegate?.ingredientsLoaded(data: self.ingredients)
+                    }
                 }
             }
             task.resume()

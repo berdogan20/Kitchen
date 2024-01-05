@@ -26,5 +26,8 @@ extension IngredientsViewModel: IngredientsDataSourceDelegate {
     func ingredientsLoaded(data: Ingredients) {
         isLoading = false
         ingredients = data
+
+        // ingredients contains the same IngredientItem multiple times
+        // how to correct this
     }
 }

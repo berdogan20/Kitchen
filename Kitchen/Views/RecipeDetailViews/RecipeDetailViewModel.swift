@@ -9,10 +9,10 @@ import Foundation
 
 class RecipeDetailViewModel: ObservableObject {
     @Published var detailIsLoading = true
-    @Published var stepsAreLoading = true
     private var dataSource = RecipeDetailDataSource()
     @Published var recipeDetail: RecipeDetail?
     @Published var recipeSteps: [AnalyzedSteps]?
+    @Published var recipeIngredients: [Ingredient]?
 
     init() {
         dataSource.delegate = self
@@ -20,10 +20,6 @@ class RecipeDetailViewModel: ObservableObject {
 
     func loadRecipeDetail(recipeID: Int) {
         dataSource.loadRecipeDetails(recipeID: recipeID)
-    }
-
-    func loadSteps(recipeID: Int) {
-        dataSource.loadRecipeSteps(recipeID: recipeID)
     }
 
     // I use this function to strip the HTML tags off the recipe summary, because the API provides us with an HTML tag filled summary.
@@ -36,12 +32,9 @@ extension RecipeDetailViewModel: RecipeDetailDataSourceDelegate {
     func RecipeDetailIsLoaded(recipeDetail: RecipeDetail) {
         detailIsLoading = false
         self.recipeDetail = recipeDetail
+        self.recipeSteps = recipeDetail.analyzedInstructions
+        self.recipeIngredients = recipeDetail.extendedIngredients
         stripHTMLTags(recipeDetail: recipeDetail)
-    }
-
-    func RecipeStepsAreLoaded(recipeSteps: [AnalyzedSteps]) {
-        stepsAreLoading = false
-        self.recipeSteps = recipeSteps
     }
 }
 

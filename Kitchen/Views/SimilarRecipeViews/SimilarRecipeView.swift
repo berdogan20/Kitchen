@@ -10,12 +10,17 @@ import SwiftUI
 struct SimilarRecipeView: View {
 
     @StateObject private var viewModel = SimilarRecipeViewModel()
+    private let recipeID: Int
+
+    init(recipeID: Int) {
+        self.recipeID = recipeID
+    }
 
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Similar recipes are Coming!!!")
                 .onAppear(){
-                    viewModel.loadSimilarRecipesData(recipeId: 406722)
+                    viewModel.loadSimilarRecipesData(recipeId: recipeID)
                 }
         } else {
             NavigationView {
@@ -38,5 +43,5 @@ struct SimilarRecipeView: View {
 }
 
 #Preview {
-    SimilarRecipeView()
+    SimilarRecipeView(recipeID: 406722)
 }

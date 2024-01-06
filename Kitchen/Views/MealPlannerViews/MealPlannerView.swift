@@ -12,7 +12,7 @@ struct MealPlannerView: View {
     @StateObject private var viewModel = MealPlannerViewModel()
     var body: some View {
         VStack {
-            Text("Plan your meal for the day!")
+            Text("Plan your meals for the day!")
                 .font(.title)
                 .bold()
             
@@ -38,6 +38,9 @@ struct MealPlannerView: View {
                 Spacer()
             } else {
                 if let mealPlan = viewModel.mealPlan {
+                    let caloriesString = String(format: "%.2f", mealPlan.nutrients.calories)
+                    Text("Your meal plan for today has a total of \(caloriesString) calories.")
+                    Spacer()
                     NavigationView {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 20) { // Adjust spacing between recipe views
@@ -51,6 +54,7 @@ struct MealPlannerView: View {
                             .padding() // Add padding around the scroll content
                         }
                     }
+
                 }
             }
         }

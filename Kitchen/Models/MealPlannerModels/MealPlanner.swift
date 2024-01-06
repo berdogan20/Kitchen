@@ -18,8 +18,8 @@ struct MealPlan: Codable {
 // MARK: - NutrientInfo
 
 struct NutrientInfo: Codable {
-    let calories: Double
-    let carbohydrates: Double
-    let fat: Double
-    let protein: Double
+    let calories: Float32
+    let carbohydrates: Float32
+    let fat: Float32
+    let protein: Float32
 }

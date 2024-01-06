@@ -21,8 +21,9 @@ struct IngredientDetailView: View {
             // the steps of the recipe.
             ForEach(ingredients, id: \.self) { ingredient in
                 HStack (spacing: Spacing.spacing_1){
+                    Image(systemName: "circle.fill").imageScale(.small)
                     Text(ingredient.original)
-                        .font(.caption)
+                        .font(.body)
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }

@@ -55,27 +55,35 @@ struct RecipeDetailView: View {
                         VStack(spacing: Spacing.spacing_1) {
                             HStack(spacing: Spacing.spacing_1) {
                                 Text("General Description:")
+                                    .bold()
+                                    .font(.title2)
+                                    .padding(Spacing.spacing_1)
                                 Spacer()
                             }
 
                             // The description of the recipe is put below the image
                             // of the recipe.
                             LongText(text: recipeDetail.summary)
-                                .font(.caption)
+                                .font(.body)
                                 .padding(Spacing.spacing_2)
                             Spacer()
-
+                            Divider()
                             HStack(spacing: Spacing.spacing_1) {
                                 Text("Ingredients:")
+                                    .bold()
+                                    .font(.title2)
+                                    .padding(Spacing.spacing_1)
                                 Spacer()
                             }
+
                             VStack(spacing: .zero) {
                                 if (recipeIngredients.isEmpty) {
                                     Text("Unfortunately, our system could not find any ingredient information for this recipe.")
                                 } else {
-                                    IngredientDetailView(ingredients: Array(Set(recipeIngredients)))
+                                        IngredientDetailView(ingredients: Array(Set(recipeIngredients)))
                                 }
 
+                                Divider()
                                 HStack(spacing: .zero) {
                                     VStack(spacing: .zero) {
                                         // Unfortunately the API does not have detailed instructions for some of the recipes :(.
@@ -89,7 +97,7 @@ struct RecipeDetailView: View {
                                             VStack (spacing: Spacing.spacing_2) {
                                                 HStack {
                                                     LongText(text: "Unfortunately, our system could not find any instructions for this recipe.")
-                                                        .font(.caption)
+                                                        .font(.body)
                                                     Spacer()
                                                 }
                                             }
@@ -143,6 +151,9 @@ struct RecipeDetailView: View {
             VStack(spacing: Spacing.spacing_2) {
                 HStack() {
                     Text(nameString)
+                        .bold()
+                        .font(.title2)
+                        .padding(Spacing.spacing_1)
                     Spacer()
                 }
                 // Goes over each of the steps and creates a LongText view to display all
@@ -150,7 +161,7 @@ struct RecipeDetailView: View {
                 ForEach(instructions.steps, id: \.self) { step in
                     HStack{
                         LongText(text: step.step)
-                            .font(.caption)
+                            .font(.body)
                             .multilineTextAlignment(.leading)
                         Spacer()
                     }

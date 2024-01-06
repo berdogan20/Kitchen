@@ -5,6 +5,7 @@
 //  Created by beyza erdoğan on 5.01.2024.
 //
 
+
 import SwiftUI
 
 struct IngredientsView: View {
@@ -22,7 +23,9 @@ struct IngredientsView: View {
             NavigationView {
                 VStack {
                     List {
-                        ForEach(viewModel.ingredients, id: \.id) { ingredient in
+                        ForEach(viewModel.ingredients.filter {
+                            searchText.isEmpty ? true : $0.name.localizedCaseInsensitiveContains(searchText)
+                        }, id: \.id) { ingredient in
                             HStack {
                                 Text("\(ingredient.name)")
                                 Spacer()

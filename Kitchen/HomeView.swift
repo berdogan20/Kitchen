@@ -26,7 +26,8 @@ struct HomeView: View {
             // RecipesByCategoryView()
               //SimilarRecipeView()
              // IngredientsView()
-              RandomRecipeView()
+              //RandomRecipeView()
+              RecipeDetailView(recipeID: 715415)
             Spacer()
           }
         }

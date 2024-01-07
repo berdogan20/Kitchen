@@ -20,7 +20,6 @@ struct RecipeDetailView: View {
             Loading(text: "The recipe information is coming!")
                 .onAppear {
                     viewModel.loadRecipeDetail(recipeID: recipeID)
-                    // viewModel.loadSteps(recipeID: recipeID)
                 }
         } else {
             // since there is a lot of information about the recipe, I used a
@@ -56,7 +55,7 @@ struct RecipeDetailView: View {
                             HStack(spacing: Spacing.spacing_1) {
                                 Text("General Description:")
                                     .bold()
-                                    .font(.title2)
+                                    .font(.headline)
                                     .padding(Spacing.spacing_1)
                                 Spacer()
                             }
@@ -71,7 +70,7 @@ struct RecipeDetailView: View {
                             HStack(spacing: Spacing.spacing_1) {
                                 Text("Ingredients:")
                                     .bold()
-                                    .font(.title2)
+                                    .font(.headline)
                                     .padding(Spacing.spacing_1)
                                 Spacer()
                             }
@@ -91,6 +90,8 @@ struct RecipeDetailView: View {
                                         if recipeInstructions.isEmpty {
                                             HStack (spacing: Spacing.spacing_2){
                                                 Text("Recipe: ")
+                                                    .font(.headline)
+                                                    .bold()
                                                 Spacer()
                                             }
 
@@ -152,7 +153,7 @@ struct RecipeDetailView: View {
                 HStack() {
                     Text(nameString)
                         .bold()
-                        .font(.title2)
+                        .font(.headline)
                         .padding(Spacing.spacing_1)
                     Spacer()
                 }

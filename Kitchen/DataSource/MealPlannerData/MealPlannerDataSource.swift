@@ -1,22 +1,22 @@
 //
-//  RecipeDetailDataSource.swift
+//  MealPlannerDataSource.swift
 //  Kitchen
 //
-//  Created by Yamaç Ömür on 31.12.2023.
+//  Created by Yamaç Ömür on 6.01.2024.
 //
 
 import Foundation
 
-struct RecipeDetailDataSource {
+struct MealPlannerDataSource {
 
-    var delegate: RecipeDetailDataSourceDelegate?
-    private let baseURL = "https://api.spoonacular.com/recipes/"
+    var delegate: MealPlannerDataSourceDelegate?
+    private let baseURL = "https://api.spoonacular.com/mealplanner/generate"
 
-    func loadRecipeDetails(recipeID: Int) {
+    func loadMealPlan(calories: String, diet: String) {
         let session = URLSession.shared // Gets a shared URL session.
 
         // Creates a URL.
-        guard let url = URL(string: "\(baseURL)\(recipeID)/information?includeNutrition=false&apiKey=89b6faa459f74c5a9d8afac7107f9c4e") else {return}
+        guard let url = URL(string: "\(baseURL)?timeFrame=day&targetCalories=\(calories)&diet=\(diet)&apiKey=89b6faa459f74c5a9d8afac7107f9c4e") else {return}
         var request = URLRequest(url: url) // Creates a URL request.
 
         request.httpMethod = "GET" // Specifies the http method.
@@ -26,9 +26,9 @@ struct RecipeDetailDataSource {
             guard let data else {return}
             let decoder = JSONDecoder()
             do {
-                let recipeDetail = try decoder.decode(RecipeDetail.self, from: data) // Decodes the JSON file.
+                let mealPlan = try decoder.decode(MealPlan.self, from: data) // Decodes the JSON file.
                 DispatchQueue.main.async {
-                    delegate?.RecipeDetailIsLoaded(recipeDetail: recipeDetail)
+                    delegate?.mealPlanLoaded(data: mealPlan)
                 }
             } catch {
                 print(error)
@@ -38,4 +38,3 @@ struct RecipeDetailDataSource {
     }
 
 }
-

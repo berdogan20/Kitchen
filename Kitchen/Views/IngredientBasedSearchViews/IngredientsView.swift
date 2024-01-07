@@ -5,7 +5,6 @@
 //  Created by beyza erdoğan on 5.01.2024.
 //
 
-
 import SwiftUI
 
 struct IngredientsView: View {
@@ -22,50 +21,53 @@ struct IngredientsView: View {
         } else {
             NavigationView {
                 VStack {
-                    List {
-                        ForEach(viewModel.ingredients.filter {
-                            searchText.isEmpty ? true : $0.name.localizedCaseInsensitiveContains(searchText)
-                        }, id: \.id) { ingredient in
-                            HStack {
-                                Text("\(ingredient.name)")
-                                Spacer()
-                                Toggle("", isOn: Binding<Bool>(
-                                    get: { selectedIngredients.contains(ingredient) },
-                                    set: { isSelected in
-                                        if isSelected {
-                                            selectedIngredients.insert(ingredient)
-                                        } else {
-                                            selectedIngredients.remove(ingredient)
+                    // Place the List and searchable modifier in a VStack
+                    VStack {
+                        List {
+                            ForEach(viewModel.ingredients.filter {
+                                searchText.isEmpty ? true : $0.name.localizedCaseInsensitiveContains(searchText)
+                            }, id: \.id) { ingredient in
+                                HStack {
+                                    Text("\(ingredient.name.capitalized)")
+                                    Spacer()
+                                    Toggle("", isOn: Binding<Bool>(
+                                        get: { selectedIngredients.contains(ingredient) },
+                                        set: { isSelected in
+                                            if isSelected {
+                                                selectedIngredients.insert(ingredient)
+                                            } else {
+                                                selectedIngredients.remove(ingredient)
+                                            }
                                         }
-                                    }
-                                ))
-                                .labelsHidden()
+                                    ))
+                                    .labelsHidden()
+                                    .toggleStyle(SwitchToggleStyle(tint: Color.purple))
+                                }
                             }
-                            
                         }
+                        .searchable(text: $searchText, prompt: "Search in ingredients")
                     }
-                    .searchable(text: $searchText)
 
                     Spacer()
 
-                    NavigationLink(destination: IngredientBasedSearchView(searchIngredients: selectedIngredients)) { // selectedIngredients: Array(selectedIngredients)
+                    NavigationLink(destination: IngredientBasedSearchView(searchIngredients: selectedIngredients)) {
                         Text("Search")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.purple)
+                            .background(Color.purple.opacity(2.0))
                             .cornerRadius(10)
+                            .frame(height: 70)
                     }
                     .disabled(selectedIngredients.isEmpty)
                 }
                 .navigationBarTitle("Ingredients")
-                .background(Color.clear)
             }
         }
     }
-    
 }
 
-
-#Preview {
-    IngredientsView()
+struct IngredientsView_Previews: PreviewProvider {
+    static var previews: some View {
+        IngredientsView()
+    }
 }

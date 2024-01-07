@@ -38,6 +38,7 @@ class IngredientsDataSource {
                             ingredients.append(ingredient)
                         }
                     }
+                    ingredients.removeFirst()
                     DispatchQueue.main.async {
                         self.delegate?.ingredientsLoaded(data: self.ingredients)
                     }

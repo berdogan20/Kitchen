@@ -24,7 +24,7 @@ struct HomeView: View {
             Text("You need to be logged in to use this app.")
           } content: {
             // RecipesByCategoryView()
-             // SimilarRecipeView()
+              //SimilarRecipeView()
              // IngredientsView()
               RandomRecipeView()
             Spacer()

@@ -41,6 +41,7 @@ struct IngredientsView: View {
                                 ))
                                 .labelsHidden()
                             }
+                            
                         }
                     }
                     .searchable(text: $searchText)
@@ -51,15 +52,17 @@ struct IngredientsView: View {
                         Text("Search")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(8)
+                            .background(Color.purple)
+                            .cornerRadius(10)
                     }
                     .disabled(selectedIngredients.isEmpty)
                 }
                 .navigationBarTitle("Ingredients")
+                .background(Color.clear)
             }
         }
     }
+    
 }
 
 

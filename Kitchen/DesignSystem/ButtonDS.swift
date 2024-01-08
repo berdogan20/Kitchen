@@ -26,12 +26,13 @@ struct ButtonDS: View {
             action: action
         ) {
             Text(buttonTitle)
-                .foregroundColor(.white)
+                .foregroundStyle(.buttonText)
                 .padding(.horizontal, Spacing.spacing_5)
                 .padding(.vertical, Spacing.spacing_1)
                 .overlay {
                     RoundedRectangle(cornerRadius: Radius.radius_4)
                         .stroke(.primary, lineWidth: 2)
+                        .foregroundColor(.purple)
                 }
         }
         .padding(.vertical, Spacing.spacing_2)

@@ -7,53 +7,19 @@
 
 import SwiftUI
 
-/*
 struct RecipesByCategoryView: View {
 
-    @StateObject private var viewModel = RecipesByCategoryViewModel()
-
-    var body: some View {
-        if viewModel.isLoading {
-            Loading(text: "Recipes are Coming!!!")
-                .onAppear(){
-                    viewModel.loadRecipeByCategoryData(query: "salad", offset: 0, number: 10)
-                }
-        } else {
-            NavigationView {
-                List {
-                    ForEach(0 ..< viewModel.recipesByCategory.results.count / 2, id: \.self) { index in
-                        let startIndex = index * 2
-                        let endIndex = min((index + 1) * 2, viewModel.recipesByCategory.results.count)
-                        let recipesInRow = viewModel.recipesByCategory.results[startIndex..<endIndex]
-
-                        HStack(spacing: Spacing.spacing_2) {
-                            ForEach(recipesInRow, id: \.self) { recipe in
-                                NavigationLink(destination: RecipeDetailView(recipeID: recipe.id)) {
-                                    RecipeView(recipe: recipe)
-                                        .frame(maxWidth: .infinity) // Fill available space
-                                }
-                            }
-                        }
-                        .padding(.horizontal, Spacing.spacing_2) // Add horizontal padding
-                    }
-                }
-                .navigationTitle("Recipes")
-            }
-        }
-    }
-*/
-struct RecipesByCategoryView: View {
-
+    let category: String
     @StateObject private var viewModel = RecipesByCategoryViewModel()
 
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Recipes are Coming!!!")
                 .onAppear() {
-                    viewModel.loadRecipeByCategoryData(query: "salad", offset: 0, number: 10)
+                    viewModel.loadRecipeByCategoryData(query: category, offset: 0, number: 10)
                 }
         } else {
-            NavigationView {
+            NavigationStack {
                 List(viewModel.recipesByCategory.results, id: \.self) { recipe in
                     HStack(spacing: Spacing.spacing_2) {
                         NavigationLink(destination: RecipeDetailView(recipeID: recipe.id)) {
@@ -100,7 +66,3 @@ struct RecipesByCategoryView: View {
 
         }
     }
-
-#Preview {
-    RecipesByCategoryView()
-}

@@ -33,41 +33,44 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
 
 
   var body: some View {
-    switch viewModel.authenticationState {
-    case .unauthenticated, .authenticating:
-      VStack {
-        if let unauthenticated {
-          unauthenticated
-        }
-        else {
-          Text("You're not logged in.")
-        }
-        Button("Tap here to log in") {
-          viewModel.reset()
-          presentingLoginScreen.toggle()
-        }
-        .padding()
-        .foregroundColor(.green)
+      switch viewModel.authenticationState {
+      case .unauthenticated, .authenticating:
+          VStack {
+              if let unauthenticated {
+                  unauthenticated
+              }
+              else {
+                  Text("You're not logged in.")
+              }
+              Button("Tap here to log in") {
+                  viewModel.reset()
+                  presentingLoginScreen.toggle()
+              }
+              .padding()
+              .foregroundColor(.green)
+          }
+          .sheet(isPresented: $presentingLoginScreen) {
+              AuthenticationView()
+                  .environmentObject(viewModel)
+          }
+          
+      case .authenticated:
+          /*VStack {
+           content()
+           Text("You're logged in as \(viewModel.displayName).")
+           Button("Tap here to view your profile") {
+           presentingProfileScreen.toggle()
+           }
+           }
+           .sheet(isPresented: $presentingProfileScreen) {
+           NavigationStack {
+           UserProfileView()
+           .environmentObject(viewModel)
+           }
+           }*/
+          // RecipesByCategoryView()
+          CategoriesView()
       }
-      .sheet(isPresented: $presentingLoginScreen) {
-        AuthenticationView()
-          .environmentObject(viewModel)
-      }
-    case .authenticated:
-      VStack {
-        content()
-        Text("You're logged in as \(viewModel.displayName).")
-        Button("Tap here to view your profile") {
-          presentingProfileScreen.toggle()
-        }
-      }
-      .sheet(isPresented: $presentingProfileScreen) {
-        NavigationStack {
-          UserProfileView()
-            .environmentObject(viewModel)
-        }
-      }
-    }
   }
 }
 

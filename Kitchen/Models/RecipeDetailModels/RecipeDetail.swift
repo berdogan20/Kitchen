@@ -14,6 +14,8 @@ struct RecipeDetail: Codable {
     let extendedIngredients: [Ingredient] // The list of ingredients needed to make the recipe.
     let title: String // The name of the recipe.
     let image: String // The image URL of the recipe.
+    let readyInMinutes: Int
+    let servings: Int
     var summary: String // The description of the recipe.
     let analyzedInstructions: [AnalyzedSteps]
 }

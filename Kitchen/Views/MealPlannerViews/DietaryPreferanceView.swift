@@ -17,9 +17,11 @@ struct DietaryPreferanceView: View {
                 Picker("Select a dietary preference", selection: $selection) {
                     ForEach(preferences, id: \.self) {
                         Text($0)
+                            .foregroundStyle(.buttonText)
                     }
                 }
                 .pickerStyle(.menu)
+                .frame(width: 150, height: 31)
             }
         }
     }

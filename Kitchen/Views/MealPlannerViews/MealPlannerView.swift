@@ -16,15 +16,38 @@ struct MealPlannerView: View {
                 .font(.title)
                 .bold()
             
-            HStack(spacing: Spacing.spacing_1) {
-                Text("Calorie Goal: ")
-                    .padding(Spacing.spacing_2)
-                TextField("Enter your calorie goal", text: $viewModel.calorieGoal)
+            VStack {
+                HStack(spacing: Spacing.spacing_1) {
+                    Text("Calorie Goal: ")
+                        .padding(.leading)
+                    Spacer()
+                    TextField(" Enter calorie goal", text: $viewModel.calorieGoal)
+                        .frame(width: 150, height: 31)
+                        .background(.white)
+                        .padding(.trailing)
+                }
+                .frame(height: 45)
+                .background(.purple.opacity(0.8))
+                .cornerRadius(8)
+
+
+                HStack(spacing: Spacing.spacing_1) {
+                    Text("Dietary Preference: ")
+                        .padding(.leading)
+                    Spacer()
+                    DietaryPreferanceView(selection: $viewModel.selectedPreference)
+                        .border(Color(Color.purple))
+                        .background(.white)
+                        .padding(.trailing)
+                }
+                .frame(height: 45)
+                .background(.purple.opacity(0.8))
+                .cornerRadius(8)
             }
-            HStack(spacing: Spacing.spacing_1) {
-                Text("Dietary Preference: ")
-                DietaryPreferanceView(selection: $viewModel.selectedPreference)
-            }
+            .padding()
+
+
+
             
             ButtonDS(buttonTitle: "Create") {
                 viewModel.createMealPlan()
@@ -58,6 +81,7 @@ struct MealPlannerView: View {
                 }
             }
         }
+
     }
 }
 // TODO: ADD THE CALORIES SO THAT THE USER CAN SEE HOW MUCH IT IS!!!

@@ -45,6 +45,7 @@ struct CategoriesView: View {
                     .bold()
                     .padding(.top, Spacing.spacing_1)
                     .shadow(radius: Radius.radius_3)
+                    .padding(.leading, -150)
 
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(viewModel.categories, id: \.self) { category in
@@ -59,7 +60,6 @@ struct CategoriesView: View {
 
             }
         }
-
         .ignoresSafeArea()
     }
 

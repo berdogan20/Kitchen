@@ -53,6 +53,8 @@
 		7173D95E2B400E4E0030FFA9 /* RecipesByCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D95D2B400E4E0030FFA9 /* RecipesByCategory.swift */; };
 		7173D9602B400FF10030FFA9 /* RecipesByCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D95F2B400FF00030FFA9 /* RecipesByCategoryViewModel.swift */; };
 		7173D9622B400FFC0030FFA9 /* RecipesByCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173D9612B400FFC0030FFA9 /* RecipesByCategoryView.swift */; };
+		7188D8312B4C2C8C0035D91B /* preferences in Resources */ = {isa = PBXBuildFile; fileRef = 7188D8302B4C2C8C0035D91B /* preferences */; };
+		7188D8332B4C2D2F0035D91B /* DietaryPreferanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188D8322B4C2D2F0035D91B /* DietaryPreferanceViewModel.swift */; };
 		719BAAF72B31B11200C823D2 /* KitchenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BAAF62B31B11200C823D2 /* KitchenApp.swift */; };
 		719BAAF92B31B11200C823D2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BAAF82B31B11200C823D2 /* HomeView.swift */; };
 		719BAAFB2B31B11400C823D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719BAAFA2B31B11400C823D2 /* Assets.xcassets */; };
@@ -125,6 +127,8 @@
 		7173D95D2B400E4E0030FFA9 /* RecipesByCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesByCategory.swift; sourceTree = "<group>"; };
 		7173D95F2B400FF00030FFA9 /* RecipesByCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesByCategoryViewModel.swift; sourceTree = "<group>"; };
 		7173D9612B400FFC0030FFA9 /* RecipesByCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesByCategoryView.swift; sourceTree = "<group>"; };
+		7188D8302B4C2C8C0035D91B /* preferences */ = {isa = PBXFileReference; lastKnownFileType = text; path = preferences; sourceTree = "<group>"; };
+		7188D8322B4C2D2F0035D91B /* DietaryPreferanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPreferanceViewModel.swift; sourceTree = "<group>"; };
 		719BAAF32B31B11200C823D2 /* Kitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		719BAAF62B31B11200C823D2 /* KitchenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenApp.swift; sourceTree = "<group>"; };
 		719BAAF82B31B11200C823D2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -399,6 +403,7 @@
 		719BAAF52B31B11200C823D2 /* Kitchen */ = {
 			isa = PBXGroup;
 			children = (
+				7188D8302B4C2C8C0035D91B /* preferences */,
 				71AEE89B2B3DAB14002DF2D4 /* Info.plist */,
 				7173D9442B3FFCDF0030FFA9 /* GoogleService-Info.plist */,
 				7173D95B2B400CA00030FFA9 /* Views */,
@@ -454,6 +459,7 @@
 				A6A2A96F2B497AC800133F96 /* MealPlannerView.swift */,
 				A6A2A9712B497AD700133F96 /* MealPlannerViewModel.swift */,
 				A6A2A9732B497D9300133F96 /* DietaryPreferanceView.swift */,
+				7188D8322B4C2D2F0035D91B /* DietaryPreferanceViewModel.swift */,
 			);
 			path = MealPlannerViews;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719BAAFB2B31B11400C823D2 /* Assets.xcassets in Resources */,
+				7188D8312B4C2C8C0035D91B /* preferences in Resources */,
 				7173D9452B3FFCDF0030FFA9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +617,7 @@
 				7123C80C2B47EC1D00C413F2 /* IngredientBasedSearchDataSource.swift in Sources */,
 				7123C7D92B47D18000C413F2 /* SimilarRecipes.swift in Sources */,
 				71AEE89D2B3DAB49002DF2D4 /* LoginView.swift in Sources */,
+				7188D8332B4C2D2F0035D91B /* DietaryPreferanceViewModel.swift in Sources */,
 				7123C7D62B47D12D00C413F2 /* SimilarRecipesDataSourceDelegate.swift in Sources */,
 				7123C81D2B47F41C00C413F2 /* RandomRecipeDataSourceDelegate.swift in Sources */,
 				7123C8092B47EC0600C413F2 /* IngredientBasedSearchViewModel.swift in Sources */,

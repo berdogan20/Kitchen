@@ -10,19 +10,20 @@ import SwiftUI
 struct DietaryPreferanceView: View {
     @Binding var selection: String
 
-        let preferences = ["Gluten Free", "Vegetarian", "Ketogenic", "Vegan", "Pescetarian", "Paleo"]
+        // let preferences = ["Gluten Free", "Vegetarian", "Ketogenic", "Vegan", "Pescetarian", "Paleo"]
+    @StateObject private var viewModel = DietaryPreferanceViewModel()
 
         var body: some View {
             VStack {
                 Picker("Select a dietary preference", selection: $selection) {
-                    ForEach(preferences, id: \.self) {
+                    ForEach(viewModel.preferences, id: \.self) {
                         Text($0)
                     }
                 }
                 .pickerStyle(.menu)
-            }
         }
     }
+}
 
 // #Preview {
     // DietaryPreferanceView(selection: "Gluten Free")

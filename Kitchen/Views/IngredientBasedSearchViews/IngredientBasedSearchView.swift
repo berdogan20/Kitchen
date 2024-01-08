@@ -23,28 +23,6 @@ struct IngredientBasedSearchView: View {
                     viewModel.loadIngredientBasedSearchData(searchIngredients: searchIngredients)
                 }
         } else {
-
-            /*
-            NavigationView {
-                List {
-                    ForEach(0 ..< viewModel.ingredientBasedSearch.count / 2, id: \.self) { index in
-                        let startIndex = index * 2
-                        let endIndex = min((index + 1) * 2, viewModel.ingredientBasedSearch.count)
-                        let recipesInRow = viewModel.ingredientBasedSearch[startIndex..<endIndex]
-
-                        HStack(spacing: Spacing.spacing_2) {
-                            ForEach(recipesInRow, id: \.self) { recipe in
-                                RecipeView(recipe: recipe)
-                                    .frame(maxWidth: .infinity) // Fill available space
-                            }
-                        }
-                        .padding(.horizontal, Spacing.spacing_2) // Add horizontal padding
-                    }
-                }
-                .navigationTitle("Recipes")
-            }
-
-            */
             NavigationView {
                 List(viewModel.ingredientBasedSearch, id: \.self) { recipe in
                     HStack(spacing: Spacing.spacing_2) {

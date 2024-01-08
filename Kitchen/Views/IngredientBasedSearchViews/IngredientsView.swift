@@ -30,20 +30,24 @@ struct IngredientsView: View {
                                 HStack {
                                     Text("\(ingredient.name.capitalized)")
                                     Spacer()
-                                    Toggle("", isOn: Binding<Bool>(
-                                        get: { selectedIngredients.contains(ingredient) },
-                                        set: { isSelected in
-                                            if isSelected {
-                                                selectedIngredients.insert(ingredient)
-                                            } else {
-                                                selectedIngredients.remove(ingredient)
-                                            }
+                                    BasketToggleButton(isSelected: selectedIngredients.contains(ingredient)) {
+                                        if selectedIngredients.contains(ingredient) {
+                                            selectedIngredients.remove(ingredient)
+                                        } else {
+                                            selectedIngredients.insert(ingredient)
                                         }
-                                    ))
-                                    .labelsHidden()
-                                    .toggleStyle(SwitchToggleStyle(tint: Color.purple))
+                                    }
                                 }
                             }
+                            .listRowBackground(
+                                Capsule()
+                                    .fill(Color(white: 1, opacity:0.7))
+                                    .padding(.vertical, 6)
+                                    .padding(.horizontal, 1)
+                                    .frame(height: 55)
+                            )
+                            .listRowSeparator(.hidden)
+
                         }
                         .searchable(text: $searchText, prompt: "Search in ingredients")
                     }
@@ -54,17 +58,41 @@ struct IngredientsView: View {
                         Text("Search")
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.purple.opacity(2.0))
+                            .background(Color.basket.opacity(2.0))
                             .cornerRadius(10)
                             .frame(height: 70)
                     }
                     .disabled(selectedIngredients.isEmpty)
                 }
                 .navigationBarTitle("Ingredients")
+                .environment(\.defaultMinListRowHeight, 50)
+                .scrollContentBackground(.hidden)
+                .background {
+                    Image("ingredientsBackground")
+                        .resizable()
+                        .scaledToFill()
+                        .blur(radius: 0.1)
+                        .edgesIgnoringSafeArea(.all)
+                }
             }
         }
     }
+
+
+    struct BasketToggleButton: View {
+        let isSelected: Bool
+        let action: () -> Void
+
+        var body: some View {
+            Button(action: action) {
+                Image(systemName: isSelected ? "basket.fill" : "basket")
+                    .foregroundColor(isSelected ? .basket : .gray)
+            }
+        }
+    }
+
 }
+
 
 struct IngredientsView_Previews: PreviewProvider {
     static var previews: some View {

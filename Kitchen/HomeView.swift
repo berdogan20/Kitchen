@@ -10,30 +10,31 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationStack {
-          AuthenticatedView {
-            Image(systemName: "fork.knife")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(width: 100 , height: 100)
-              .clipShape(Circle())
-              .clipped()
-              .padding(4)
-              .overlay(Circle().stroke(Color.black, lineWidth: 2))
-            Text("Welcome to Kitchen!")
-              .font(.title)
-            Text("You need to be logged in to use this app.")
-          } content: {
-              CategoriesView()
-            // RecipesByCategoryView()
-              //SimilarRecipeView()
-              // IngredientsView()
-              //RandomRecipeView()
-             // RecipeDetailView(recipeID: 715415)
-             // MealPlannerView()
-            Spacer()
-          }
+            AuthenticatedView {
+                Image(systemName: "fork.knife")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100 , height: 100)
+                    .clipShape(Circle())
+                    .clipped()
+                    .padding(4)
+                    .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                Text("Welcome to Kitchen!")
+                    .font(.title)
+                Text("You need to be logged in to use this app.")
+            } content: {
+                // CategoriesView()
+                // RecipesByCategoryView()
+                //SimilarRecipeView()
+                // IngredientsView()
+                //RandomRecipeView()
+                // RecipeDetailView(recipeID: 715415)
+                // MealPlannerView()
+                Spacer()
+            }
         }
     }
+
 }
 
 #Preview {

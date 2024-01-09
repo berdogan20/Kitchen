@@ -69,7 +69,7 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
            }
            }*/
           // RecipesByCategoryView()
-          CategoriesView()
+          MainView()
       }
   }
 }

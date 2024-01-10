@@ -90,7 +90,7 @@ struct TabButton: View {
 }
 
 struct RecipeImage: View {
-    let recipe: RandRecipe?
+    let recipe: Recipe?
     var body: some View {
         AsyncImage(url: URL(string: recipe?.image ?? "")) { phase in
             if let image = phase.image {

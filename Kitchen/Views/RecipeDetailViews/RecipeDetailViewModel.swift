@@ -10,9 +10,9 @@ import Foundation
 class RecipeDetailViewModel: ObservableObject {
     @Published var detailIsLoading = true
     private var dataSource = RecipeDetailDataSource()
-    @Published var recipeDetail: RecipeDetail?
-    @Published var recipeSteps: [AnalyzedSteps]?
-    @Published var recipeIngredients: [Ingredient]?
+    @Published var recipeDetail: Recipe?
+    @Published var recipeSteps: [AnalyzedInstruction]?
+    @Published var recipeIngredients: [ExtendedIngredient]?
 
     init() {
         dataSource.delegate = self
@@ -23,13 +23,13 @@ class RecipeDetailViewModel: ObservableObject {
     }
 
     // I use this function to strip the HTML tags off the recipe summary, because the API provides us with an HTML tag filled summary.
-    func stripHTMLTags(recipeDetail: RecipeDetail) {
+    func stripHTMLTags(recipeDetail: Recipe) {
         self.recipeDetail?.summary = recipeDetail.summary.stripHTML
         }
     }
 
 extension RecipeDetailViewModel: RecipeDetailDataSourceDelegate {
-    func RecipeDetailIsLoaded(recipeDetail: RecipeDetail) {
+    func RecipeDetailIsLoaded(recipeDetail: Recipe) {
         detailIsLoading = false
         self.recipeDetail = recipeDetail
         self.recipeSteps = recipeDetail.analyzedInstructions

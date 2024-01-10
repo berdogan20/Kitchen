@@ -26,7 +26,7 @@ struct RecipeDetailDataSource {
             guard let data else {return}
             let decoder = JSONDecoder()
             do {
-                let recipeDetail = try decoder.decode(RecipeDetail.self, from: data) // Decodes the JSON file.
+                let recipeDetail = try decoder.decode(Recipe.self, from: data) // Decodes the JSON file.
                 DispatchQueue.main.async {
                     delegate?.RecipeDetailIsLoaded(recipeDetail: recipeDetail)
                 }

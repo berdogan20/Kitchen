@@ -9,9 +9,9 @@ import SwiftUI
 
 struct IngredientDetailView: View {
 
-    let ingredients: [Ingredient]
+    let ingredients: [ExtendedIngredient]
 
-    init(ingredients: [Ingredient]) {
+    init(ingredients: [ExtendedIngredient]) {
         self.ingredients = ingredients
     }
 

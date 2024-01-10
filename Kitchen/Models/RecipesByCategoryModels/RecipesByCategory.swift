@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - RecipesByCategory
 struct RecipesByCategory: Codable {
-    let results: [Recipe]
+    let results: [RecipeByCategory]
     let offset, number, totalResults: Int
 }
 
 // MARK: - Result
-struct Recipe: Codable, Hashable {
+struct RecipeByCategory: Codable, Hashable {
     let id: Int
     let title: String
     let image: String

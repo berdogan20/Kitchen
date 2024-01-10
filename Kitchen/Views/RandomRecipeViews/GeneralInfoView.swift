@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GeneralInfoView: View {
 
-    let recipe: RandRecipe
+    let recipe: Recipe
 
     var body: some View {
         RecipeInfoView(recipe: recipe)
@@ -17,7 +17,7 @@ struct GeneralInfoView: View {
 }
 
 struct RecipeInfoView: View {
-    let recipe: RandRecipe
+    let recipe: Recipe
     
     var body: some View {
         VStack (spacing: Spacing.spacing_2) {

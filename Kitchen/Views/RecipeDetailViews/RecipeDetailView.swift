@@ -155,9 +155,9 @@ struct RecipeDetailView: View {
 
     struct RecipeStepView: View {
 
-        let instructions: AnalyzedSteps
+        let instructions: AnalyzedInstruction
 
-        init(instructions: AnalyzedSteps) {
+        init(instructions: AnalyzedInstruction) {
             self.instructions = instructions
         }
 

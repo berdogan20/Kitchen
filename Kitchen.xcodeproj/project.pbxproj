@@ -251,8 +251,8 @@
 			children = (
 				7123C7EA2B47E19400C413F2 /* IngredientsView.swift */,
 				7123C7EC2B47E19C00C413F2 /* IngredientsViewModel.swift */,
-				7123C8062B47EBFF00C413F2 /* IngredientBasedSearchView.swift */,
 				7123C8082B47EC0600C413F2 /* IngredientBasedSearchViewModel.swift */,
+				7123C8062B47EBFF00C413F2 /* IngredientBasedSearchView.swift */,
 			);
 			path = IngredientBasedSearchViews;
 			sourceTree = "<group>";

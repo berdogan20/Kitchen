@@ -30,5 +30,5 @@ struct ExtendedIngredientsView: View {
                 }
             }
 #Preview {
-    ExtendedIngredientsView(ingredients: [ExtendedIngredient(image: "", name: "Hey", amount: 20, unit: "cups" , original: "10 cups of butter"), ExtendedIngredient(image: "", name: "Bye", amount: 20, unit: "tablespoons", original: "water")])
+    ExtendedIngredientsView(ingredients: [ExtendedIngredient(original: "10 cups of butter", image: "", name: "Hey", amount: 20, unit: "cups"), ExtendedIngredient(original: "water", image: "", name: "Bye", amount: 20, unit: "tablespoons")])
 }

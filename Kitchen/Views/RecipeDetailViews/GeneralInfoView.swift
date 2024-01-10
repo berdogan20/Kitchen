@@ -25,13 +25,13 @@ struct RecipeInfoView: View {
             VStack {
                 HStack {
                     Image(systemName: "clock")
-                    Text("\(recipe.readyInMinutes) mins")
+                    Text("\(String(format: "%.0f", recipe.readyInMinutes)) mins")
                 }
                 .foregroundColor(.gray)
 
                 HStack {
                     Image(systemName: "person.2")
-                    Text("\(recipe.servings) servings")
+                    Text("\(String(format: "%.0f", recipe.servings)) servings")
                 }
                 .foregroundColor(.gray)
 

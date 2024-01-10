@@ -34,6 +34,7 @@ struct CategoriesView: View {
                             .multilineTextAlignment(.leading)
                             .padding(.all, Spacing.spacing_1)
                             .opacity(0.9)
+                            .bold()
                             .fixedSize(horizontal: false, vertical: true)
                             .frame(maxWidth: 400)
                     }

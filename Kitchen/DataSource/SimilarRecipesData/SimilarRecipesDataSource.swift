@@ -19,7 +19,7 @@ struct SimilarRecipesDataSource {
 
         // create a URL
         // returns an optional String
-        guard let url = URL(string: "\(baseURL)\(recipeId)/similar?apiKey=89b6faa459f74c5a9d8afac7107f9c4e&includeNutrition=true.") else {return}
+        guard let url = URL(string: "\(baseURL)\(recipeId)/similar?apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8&includeNutrition=true.") else {return}
 
         // create a URL request
         var request = URLRequest(url: url)

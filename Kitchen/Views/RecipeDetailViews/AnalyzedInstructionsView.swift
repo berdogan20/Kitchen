@@ -47,8 +47,6 @@ struct AnalyzedInstructionsView: View {
                     ForEach(recipeInstructions, id: \.self) { recipe in
                         RecipeStepView(instructions: recipe)
                     }
-
-                    SimilarRecipeView(recipeID: Int(recipe.id))
                 }
             }
         }

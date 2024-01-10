@@ -35,5 +35,14 @@ enum Spacing {
 
     /// Spacing value 64.0
     static let spacing_8: CGFloat = 64.0
+
+    /// Spacing value 72.0
+    static let spacing_9: CGFloat = 72.0
+
+    /// Spacing value 80.0
+    static let spacing_10: CGFloat = 80.0
+
+    /// Spacing value 88.0
+    static let spacing_11: CGFloat = 88.0
 }
 // swiftlint:enable identifier_name

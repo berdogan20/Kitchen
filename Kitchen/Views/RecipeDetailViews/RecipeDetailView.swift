@@ -9,6 +9,10 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     @StateObject private var viewModel = RecipeDetailViewModel()
+    @State private var activeTab: ActiveView = .general
+    enum ActiveView {
+           case general, ingredients, instructions
+    }
     private let recipeID: Int // to instantiate a recipe screen, someone would need to inject the recipe ID, as the recipe ID is enough to call the API
 
     init(recipeID: Int) {
@@ -24,173 +28,120 @@ struct RecipeDetailView: View {
         } else {
             // since there is a lot of information about the recipe, I used a
             // scroll view.
-            ScrollView {
 
-                    if let recipeDetail = viewModel.recipeDetail, let recipeInstructions = viewModel.recipeSteps, let recipeIngredients = viewModel.recipeIngredients {
-                        VStack(alignment: .leading, spacing: Spacing.spacing_2) {
-                            ZStack {
-                                AsyncImage(url: URL(string: recipeDetail.image)) { phase in
-                                    if let image = phase.image {
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .frame(height: 350)
-                                    } else if phase.error != nil {
-                                        Text("Image not found.")
-                                            .frame(width: 100, height: 100)
-                                    }
-                                }
-                                .overlay(
-                                    Text(recipeDetail.title)
-                                        .foregroundColor(.white)
-                                        .font(.title)
-                                        .bold()
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(4)
-                                        .padding(.top, Spacing.spacing_5 * 7)
-                                )
-                            }
-                        }
-
-                        VStack (alignment: .leading) {
-                            Spacer()
+            if let recipe = viewModel.recipe, let recipeInstructions = viewModel.recipeSteps, let recipeIngredients = viewModel.recipeIngredients {
+                NavigationStack {
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            RecipeImage(recipe: recipe)
+                            // Top Bar
                             HStack {
-                                Image(systemName: "clock")
-                                Text("\(recipeDetail.readyInMinutes) mins")
-                            }
-                            .foregroundColor(.gray)
-                            Spacer()
-                            HStack {
-                                Image(systemName: "person.2")
-                                Text("\(recipeDetail.servings) servings")
-                            }
-                            .foregroundColor(.gray)
-                        }
-
-                        // Includes the general description of the recipe. But it is
-                        // too big, so I might just put it somewhere else.
-                        VStack(spacing: Spacing.spacing_1) {
-                            HStack(spacing: Spacing.spacing_1) {
-                                Text("General Description:")
-                                    .bold()
-                                    .font(.headline)
-                                    .padding(Spacing.spacing_1)
+                                Spacer()
+                                TabButton(label: "General", systemImage: "fork.knife.circle", activeTab: $activeTab, tab: .general)
+                                Spacer()
+                                TabButton(label: "Ingredients", systemImage: "swatchpalette", activeTab: $activeTab, tab: .ingredients)
+                                Spacer()
+                                TabButton(label: "Instructions", systemImage: "pencil.and.scribble", activeTab: $activeTab, tab: .instructions)
                                 Spacer()
                             }
+                            .padding()
 
-                            // The description of the recipe is put below the image
-                            // of the recipe.
-                            LongText(text: recipeDetail.summary)
-                                .font(.body)
-                                .padding(Spacing.spacing_2)
-                            Spacer()
-                            Divider()
-                            HStack(spacing: Spacing.spacing_1) {
-                                Text("Ingredients:")
-                                    .bold()
-                                    .font(.headline)
-                                    .padding(Spacing.spacing_1)
-                                Spacer()
+                            // Displaying corresponding view based on the active tab
+                            switch activeTab {
+                            case .general:
+                                GeneralInfoView(recipe: recipe)
+                            case .ingredients:
+                                ExtendedIngredientsView(recipe: recipe)
+                            case .instructions:
+                                AnalyzedInstructionsView(recipe: recipe)
                             }
 
-                            VStack(spacing: .zero) {
-                                if (recipeIngredients.isEmpty) {
-                                    Text("Unfortunately, our system could not find any ingredient information for this recipe.")
-                                } else {
-                                        IngredientDetailView(ingredients: Array(Set(recipeIngredients)))
-                                }
-
-                                Divider()
-                                HStack(spacing: .zero) {
-                                    VStack(spacing: .zero) {
-                                        // Unfortunately the API does not have detailed instructions for some of the recipes :(.
-                                        // I did this for now.
-                                        if recipeInstructions.isEmpty {
-                                            HStack (spacing: Spacing.spacing_2){
-                                                Text("Recipe: ")
-                                                    .font(.headline)
-                                                    .bold()
-                                                Spacer()
-                                            }
-
-                                            VStack (spacing: Spacing.spacing_2) {
-                                                HStack {
-                                                    LongText(text: "Unfortunately, our system could not find any instructions for this recipe.")
-                                                        .font(.body)
-                                                    Spacer()
-                                                }
-                                            }
-                                        }
-
-                                        // Then, I used a ForEach loop to iterate over all the
-                                        // "AnalyzedInstructions" (please check the models) and
-                                        // iteratively create a "RecipeStepView" to display the
-                                        // steps of the recipe.
-
-                                        ForEach(recipeInstructions, id: \.self) { recipe in
-                                            RecipeStepView(instructions: recipe)
-                                        }
-
-                                        SimilarRecipeView(recipeID: recipeID)
-                                    }
-                                }
-                            }
-                            .padding(Spacing.spacing_2)
-                            .navigationTitle(recipeDetail.title)
-                            .navigationBarTitleDisplayMode(.inline)
                             Spacer()
                         }
-                        .padding(.leading, Spacing.spacing_5 * 2)
-                        .padding(.trailing, Spacing.spacing_5 * 2)
-
+                    }
+                    .ignoresSafeArea(.all)
                 }
             }
-            .ignoresSafeArea()
-
         }
     }
 
 }
 
 
-    struct RecipeStepView: View {
 
-        let instructions: AnalyzedInstruction
 
-        init(instructions: AnalyzedInstruction) {
-            self.instructions = instructions
-        }
+struct TabButton: View {
+    let label: String
+    let systemImage: String
+    @Binding var activeTab: RecipeDetailView.ActiveView
+    let tab: RecipeDetailView.ActiveView
 
-        // From the API calls, it is noticeable that the main recipe has its name as
-        // an empty string, and supplementary components like sauces have their own names.
-        // Thus, if the "name" property is empty, it means that we're looking at the main recipe,
-        // and if the name property is something else, then it is a supplementary component.
-
-        private var nameString: String {
-            instructions.name == "" ? "Recipe:" : "\(instructions.name):"
-        }
-        var body: some View {
-            VStack(spacing: Spacing.spacing_2) {
-                HStack() {
-                    Text(nameString)
-                        .bold()
-                        .font(.headline)
-                        .padding(Spacing.spacing_1)
-                    Spacer()
-                }
-                // Goes over each of the steps and creates a LongText view to display all
-                // the steps of the recipe.
-                ForEach(instructions.steps, id: \.self) { step in
-                    HStack{
-                        LongText(text: step.step)
-                            .font(.body)
-                            .multilineTextAlignment(.leading)
-                        Spacer()
-                    }
-                }
+    var body: some View {
+        Button(action: {
+            activeTab = tab
+        }) {
+            VStack {
+                Image(systemName: systemImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                Text(label)
+                    .font(.caption)
             }
+            .foregroundColor(activeTab == tab ? .blue : .gray)
         }
     }
+}
+
+struct RecipeImage: View {
+    let recipe: Recipe?
+    var body: some View {
+        AsyncImage(url: URL(string: recipe?.image ?? "")) { phase in
+            if let image = phase.image {
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .cornerRadius(Radius.radius_5)
+                    .clipped()
+                    .frame(height: 300)
+                    .overlay(
+                        VStack {
+                            Spacer()
+                            Text(recipe?.title ?? "")
+                                .multilineTextAlignment(.leading)
+                                .frame(alignment: .leading)
+                                .foregroundColor(.white)
+                                .shadow(radius: Radius.radius_2)
+                                .bold()
+                                .font(.title2)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .bottom)
+                    )
+            } else if phase.error != nil {
+                Text("Image not found.")
+                    .frame(width: 100, height: 100)
+            }
+        }
+        .ignoresSafeArea(.all)
+
+    }
+}
+
+
+
+
+struct RecipeTabView: View {
+    var body: some View {
+        HStack  {
+            Label("General", systemImage: "fork.knife.circle") // GeneralInfoView()
+            Label("Ingredients", systemImage: "swatchpalette") // ExtendedIngredientsView()
+            Label("Instructions", systemImage: "pencil.and.scribble")// AnalyzedInstructionsView()
+        }
+    }
+}
+
+
 #Preview {
     RecipeDetailView(recipeID: 406722)
 }

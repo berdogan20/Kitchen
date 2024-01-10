@@ -18,20 +18,22 @@ struct GeneralInfoView: View {
 
 struct RecipeInfoView: View {
     let recipe: Recipe
-    
-    var body: some View {
-        VStack (spacing: Spacing.spacing_2) {
-            HStack {
-                Image(systemName: "clock")
-                Text("\(recipe.readyInMinutes) mins")
-            }
-            .foregroundColor(.gray)
 
-            HStack {
-                Image(systemName: "person.2")
-                Text("\(recipe.servings ) servings")
-            }
-            .foregroundColor(.gray)
+    var body: some View {
+        VStack(spacing: Spacing.spacing_2) {
+
+            VStack {
+                HStack {
+                    Image(systemName: "clock")
+                    Text("\(recipe.readyInMinutes) mins")
+                }
+                .foregroundColor(.gray)
+
+                HStack {
+                    Image(systemName: "person.2")
+                    Text("\(recipe.servings) servings")
+                }
+                .foregroundColor(.gray)
 
                 RecipeInfoLabel(imageName: recipe.glutenFree ? "glutenFree" : "gluten", text: recipe.glutenFree ? "Gluten Free" : "not Gluten Free")
                 RecipeInfoLabel(imageName: recipe.dairyFree ? "dairyFree" : "dairy", text: recipe.dairyFree ? "Dairy Free" : "not Dairy Free")
@@ -39,10 +41,25 @@ struct RecipeInfoView: View {
                 RecipeInfoLabel(imageName: recipe.vegan ? "vegan" : "notVegan", text: recipe.vegan ? "Vegan" : "not Vegan")
                 RecipeInfoLabel(imageName: recipe.veryHealthy ? "veryHealthy" : "notHealthy", text: recipe.veryHealthy ? "Healthy" : "not Healthy")
 
+
+                Text("General Description:")
+                    .bold()
+                    .font(.headline)
+                    .padding(.top, Spacing.spacing_3)
+
+                HStack {
+                    LongText(text: recipe.summary)
+                        .font(.body)
+                }
+                .padding( Spacing.spacing_3)
+            }
+            .padding(Spacing.spacing_3)
+
+            Spacer()
         }
-        .padding(.leading, Spacing.spacing_3)
-        .padding(.top, Spacing.spacing_3)
-        .frame( alignment: .center)
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

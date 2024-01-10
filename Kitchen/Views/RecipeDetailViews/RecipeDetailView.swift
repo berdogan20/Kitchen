@@ -29,7 +29,7 @@ struct RecipeDetailView: View {
             // since there is a lot of information about the recipe, I used a
             // scroll view.
 
-            if let recipe = viewModel.recipe, let recipeInstructions = viewModel.recipeSteps, let recipeIngredients = viewModel.recipeIngredients {
+            if let recipe = viewModel.recipe {
                 NavigationStack {
                     ScrollView {
                         VStack(spacing: 0) {

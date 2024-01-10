@@ -9,7 +9,7 @@ import Foundation
 
 class CategoriesViewModel: ObservableObject {
 
-    private var filename = "/Users/meryemkarakas/Documents/Kitchen/Kitchen/Views/RecipesByCategoryViews/categories"
+    private var filename = "/Users/yamacomur/Desktop/Fall 2023/COMP319B/Kitchen/Kitchen/Views/RecipesByCategoryViews/categories"
     @Published var categories: [String] = []
 
     init() {

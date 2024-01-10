@@ -18,7 +18,6 @@ struct Recipe: Codable {
     let readyInMinutes, servings: CGFloat
     let image: String
     var summary: String
-    var instructions: String
     let analyzedInstructions: [AnalyzedInstruction]
 }
 

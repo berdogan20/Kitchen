@@ -52,6 +52,7 @@ struct RecipeInfoView: View {
                         .font(.body)
                 }
                 .padding( Spacing.spacing_3)
+                SimilarRecipeView(recipeID: Int(recipe.id))
             }
             .padding(Spacing.spacing_3)
 

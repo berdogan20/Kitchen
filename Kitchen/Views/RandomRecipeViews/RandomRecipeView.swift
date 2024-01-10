@@ -50,7 +50,7 @@ struct RandomRecipeView: View {
                             case .general:
                                 GeneralInfoView(recipe: recipe)
                             case .ingredients:
-                                ExtendedIngredientsView()
+                                ExtendedIngredientsView(ingredients: recipe.extendedIngredients)
                             case .instructions:
                                 AnalyzedInstructionsView()
                             }

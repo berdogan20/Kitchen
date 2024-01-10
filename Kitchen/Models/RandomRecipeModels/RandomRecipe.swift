@@ -38,8 +38,9 @@ struct Instruction: Codable {
 }
 
 // MARK: - ExtendedIngredient
-struct ExtendedIngredient: Codable {
+struct ExtendedIngredient: Codable, Hashable {
     let image, name: String
     let amount: CGFloat
     let unit: String
+    let original: String
 }

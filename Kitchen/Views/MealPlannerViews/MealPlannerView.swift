@@ -98,7 +98,6 @@ struct MealPlannerView: View {
     }
     
 }
-// TODO: ADD THE CALORIES SO THAT THE USER CAN SEE HOW MUCH IT IS!!!
 #Preview {
     MealPlannerView()
 }

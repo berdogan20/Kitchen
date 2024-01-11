@@ -8,7 +8,7 @@
 import Foundation
 
 class DietaryPreferanceViewModel: ObservableObject {
-    private var filename = "/Users/yamacomur/Desktop/Fall 2023/COMP319B/Kitchen/Kitchen/Views/MealPlannerViews/preferences"
+    private var filename = "/Users/beyzaerdogan/Desktop/Kitchen/Kitchen/Views/MealPlannerViews/preferences"
     @Published var preferences: [String] = []
 
     init() {

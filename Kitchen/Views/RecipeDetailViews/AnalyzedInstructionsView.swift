@@ -23,7 +23,7 @@ struct AnalyzedInstructionsView: View {
                     // Unfortunately the API does not have detailed instructions for some of the recipes :(.
                     // I did this for now.
                     if recipeInstructions.isEmpty {
-                        HStack(spacing: Spacing.spacing_2){
+                        HStack(spacing: Spacing.spacing_2) {
                             Text("Recipe: ")
                                 .font(.headline)
                                 .bold()

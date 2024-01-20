@@ -13,7 +13,7 @@ class RecipesByCategoryViewModel: ObservableObject {
     @Published var recipesByCategory = RecipesByCategory(results: [], offset: 0, number: 0, totalResults: 0)
     private var recipesByCategoryDataSource = RecipesByCategoryDataSource()
 
-    init(){
+    init() {
         recipesByCategoryDataSource.delegate = self
     }
 

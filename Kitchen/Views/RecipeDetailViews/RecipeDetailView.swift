@@ -37,17 +37,17 @@ struct RecipeDetailView: View {
                             // Top Bar
                             HStack {
                                 Spacer()
-                                TabButton(label: "General", 
+                                TabButton(label: "General",
                                           systemImage: "fork.knife.circle",
                                           activeTab: $activeTab,
                                           tab: .general)
                                 Spacer()
-                                TabButton(label: "Ingredients", 
+                                TabButton(label: "Ingredients",
                                           systemImage: "swatchpalette",
                                           activeTab: $activeTab,
                                           tab: .ingredients)
                                 Spacer()
-                                TabButton(label: "Instructions", 
+                                TabButton(label: "Instructions",
                                           systemImage: "pencil.and.scribble",
                                           activeTab: $activeTab,
                                           tab: .instructions)

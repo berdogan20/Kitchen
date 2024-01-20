@@ -20,7 +20,8 @@ struct SimilarRecipesDataSource {
         // create a URL
         // returns an optional String
         guard let url = 
-                URL(string: "\(baseURL)\(recipeId)/similar?apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true.")
+                URL(
+                    string: "\(baseURL)\(recipeId)/similar?apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true.")
         else {return}
 
         // create a URL request
@@ -47,8 +48,7 @@ struct SimilarRecipesDataSource {
                     // put to main thread
                     delegate?.similarRecipesDataLoaded(data: similarRecipesData)
                 }
-            }
-            catch {
+            } catch {
                 print(error)
             }
         }

@@ -21,7 +21,7 @@ struct CategoriesView: View {
                         .frame(height: 400)
                         .clipped()
 
-                    VStack() {
+                    VStack {
                         Text("Kitchen")
                             .font(.title)
                             .bold()

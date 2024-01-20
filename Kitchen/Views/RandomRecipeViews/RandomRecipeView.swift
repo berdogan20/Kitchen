@@ -12,7 +12,6 @@ import SwiftUI
 struct RandomRecipeView: View {
     @StateObject private var viewModel = RandomRecipeViewModel()
 
-
     var body: some View {
         if viewModel.isLoading {
             Spacer()
@@ -42,12 +41,10 @@ struct RandomRecipeView: View {
                 .background(.purple)
                 .cornerRadius(Radius.radius_4)
         }
+        .padding()
     }
-
 }
-
 
 #Preview {
     RandomRecipeView()
 }
-

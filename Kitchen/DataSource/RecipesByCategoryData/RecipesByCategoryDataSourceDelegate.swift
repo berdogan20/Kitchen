@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RecipesByCategoryDataSourceDelegate{
+protocol RecipesByCategoryDataSourceDelegate: AnyObject {
     func recipesByCategoryDataLoaded(data: RecipesByCategory)
 }

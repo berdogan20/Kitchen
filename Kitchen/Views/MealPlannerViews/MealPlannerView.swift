@@ -92,19 +92,14 @@ struct MealPlannerView: View {
                                 }
                                 .padding() // Add padding around the scroll content
                             }
-
                         }
                     }
                 }
             }
-
-
         }
-
-
     }
-
 }
+
 // TODO: ADD THE CALORIES SO THAT THE USER CAN SEE HOW MUCH IT IS!!!
 #Preview {
     MealPlannerView()

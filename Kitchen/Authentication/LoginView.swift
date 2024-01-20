@@ -88,8 +88,7 @@ struct LoginView: View {
           Text("Login")
             .padding(.vertical, 8)
             .frame(maxWidth: .infinity)
-        }
-        else {
+        } else {
           ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .white))
             .padding(.vertical, 8)

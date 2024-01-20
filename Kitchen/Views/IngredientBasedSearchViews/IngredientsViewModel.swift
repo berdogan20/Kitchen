@@ -17,7 +17,7 @@ class IngredientsViewModel: ObservableObject {
         ingredientsDataSource.delegate = self
     }
 
-    func loadIngredients(){
+    func loadIngredients() {
         ingredientsDataSource.loadIngredientsData()
     }
 }

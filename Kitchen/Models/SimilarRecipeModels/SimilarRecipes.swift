@@ -22,7 +22,7 @@ struct SimilarRecipe: Codable {
 }
 
 enum ImageType: String, Codable {
-    case png = "png" 
+    case png = "png"
     case jpg = "jpg"
     case unknown // Add a default case to handle unknown values if needed
 

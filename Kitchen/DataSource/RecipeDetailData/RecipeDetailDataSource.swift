@@ -16,7 +16,8 @@ struct RecipeDetailDataSource {
         let session = URLSession.shared // Gets a shared URL session.
 
         // Creates a URL.
-        guard let url = URL(string: "\(baseURL)\(recipeID)/information?includeNutrition=false&apiKey=cb6d93abdd024912b01fe41d5639577d") else {return}
+        guard let url = URL(string: "\(baseURL)\(recipeID)/information?includeNutrition=false&apiKey=cb6d93abdd024912b01fe41d5639577d") 
+        else {return}
         var request = URLRequest(url: url) // Creates a URL request.
 
         request.httpMethod = "GET" // Specifies the http method.
@@ -28,7 +29,7 @@ struct RecipeDetailDataSource {
             do {
                 let recipeDetail = try decoder.decode(Recipe.self, from: data) // Decodes the JSON file.
                 DispatchQueue.main.async {
-                    delegate?.RecipeDetailIsLoaded(recipeDetail: recipeDetail)
+                    delegate?.recipeDetailIsLoaded(recipeDetail: recipeDetail)
                 }
             } catch {
                 print(error)
@@ -38,4 +39,3 @@ struct RecipeDetailDataSource {
     }
 
 }
-

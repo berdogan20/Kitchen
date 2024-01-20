@@ -7,12 +7,10 @@
 
 import Foundation
 
-
 // MARK: - MealPlan
 struct MealPlan: Codable {
     let meals: [SimilarRecipe]
     let nutrients: NutrientInfo
-
 }
 
 // MARK: - NutrientInfo

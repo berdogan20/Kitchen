@@ -12,15 +12,13 @@ class RandomRecipeViewModel: ObservableObject {
     @Published var randomRecipe: RandomRecipe = RandomRecipe(recipes: [])
     private var randomRecipeDataSoruce = RandomRecipeDataSource()
 
-    init(){
+    init() {
         randomRecipeDataSoruce.delegate = self
     }
 
-    func loadRandomRecipeData(){
+    func loadRandomRecipeData() {
         randomRecipeDataSoruce.loadRandomRecipeData()
     }
-
-
 }
 
 extension RandomRecipeViewModel: RandomRecipeDataSourceDelegate {

@@ -84,7 +84,7 @@ struct RectangleCategoryView: View {
                 .padding(.top, Spacing.spacing_2)
             Spacer()
             Text(category)
-                .foregroundColor(.white) 
+                .foregroundColor(.white)
                 .bold()
             Spacer()
         }

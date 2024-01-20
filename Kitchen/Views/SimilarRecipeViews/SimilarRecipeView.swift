@@ -19,7 +19,7 @@ struct SimilarRecipeView: View {
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Similar recipes are Coming!!!")
-                .onAppear(){
+                .onAppear() {
                     viewModel.loadSimilarRecipesData(recipeId: recipeID)
                 }
         } else {

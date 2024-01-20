@@ -23,16 +23,17 @@ struct AnalyzedInstructionsView: View {
                     // Unfortunately the API does not have detailed instructions for some of the recipes :(.
                     // I did this for now.
                     if recipeInstructions.isEmpty {
-                        HStack (spacing: Spacing.spacing_2){
+                        HStack(spacing: Spacing.spacing_2){
                             Text("Recipe: ")
                                 .font(.headline)
                                 .bold()
                             Spacer()
                         }
 
-                        VStack (spacing: Spacing.spacing_2) {
+                        VStack(spacing: Spacing.spacing_2) {
                             HStack {
-                                LongText(text: "Unfortunately, our system could not find any instructions for this recipe.")
+                                LongText(
+                                    text: "Unfortunately, our system could not find any instructions for this recipe.")
                                     .font(.body)
                                 Spacer()
                             }
@@ -69,7 +70,6 @@ struct RecipeStepView: View {
         // an empty string, and supplementary components like sauces have their own names.
         // Thus, if the "name" property is empty, it means that we're looking at the main recipe,
         // and if the name property is something else, then it is a supplementary component.
-
 
     var body: some View {
             VStack(spacing: Spacing.spacing_2) {

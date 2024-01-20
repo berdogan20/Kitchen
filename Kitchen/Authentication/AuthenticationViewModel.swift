@@ -5,7 +5,6 @@
 //  Created by beyza erdoğan on 28.12.2023.
 //
 
-
 import Foundation
 import FirebaseCore
 import FirebaseAuth
@@ -88,8 +87,7 @@ extension AuthenticationViewModel {
     do {
       try await Auth.auth().signIn(withEmail: self.email, password: self.password)
       return true
-    }
-    catch  {
+    } catch {
       print(error)
       errorMessage = error.localizedDescription
       authenticationState = .unauthenticated
@@ -102,8 +100,7 @@ extension AuthenticationViewModel {
     do  {
       try await Auth.auth().createUser(withEmail: email, password: password)
       return true
-    }
-    catch {
+    } catch {
       print(error)
       errorMessage = error.localizedDescription
       authenticationState = .unauthenticated
@@ -114,8 +111,7 @@ extension AuthenticationViewModel {
   func signOut() {
     do {
       try Auth.auth().signOut()
-    }
-    catch {
+    } catch {
       print(error)
       errorMessage = error.localizedDescription
     }
@@ -125,8 +121,7 @@ extension AuthenticationViewModel {
     do {
       try await user?.delete()
       return true
-    }
-    catch {
+    } catch {
       errorMessage = error.localizedDescription
       return false
     }
@@ -166,8 +161,7 @@ extension AuthenticationViewModel {
         let firebaseUser = result.user
         print("User \(firebaseUser.uid) signed in with email \(firebaseUser.email ?? "unknown")")
         return true
-      }
-      catch {
+      } catch {
         print(error.localizedDescription)
         self.errorMessage = error.localizedDescription
         return false

@@ -35,11 +35,16 @@ struct RecipeInfoView: View {
                 }
                 .foregroundColor(.gray)
 
-                RecipeInfoLabel(imageName: recipe.glutenFree ? "glutenFree" : "gluten", text: recipe.glutenFree ? "Gluten Free" : "not Gluten Free")
-                RecipeInfoLabel(imageName: recipe.dairyFree ? "dairyFree" : "dairy", text: recipe.dairyFree ? "Dairy Free" : "not Dairy Free")
-                RecipeInfoLabel(imageName: recipe.vegetarian ? "vegetarian" : "notVegetarian", text: recipe.vegetarian ? "Vegetarian" : "not Vegetarian")
-                RecipeInfoLabel(imageName: recipe.vegan ? "vegan" : "notVegan", text: recipe.vegan ? "Vegan" : "not Vegan")
-                RecipeInfoLabel(imageName: recipe.veryHealthy ? "veryHealthy" : "notHealthy", text: recipe.veryHealthy ? "Healthy" : "not Healthy")
+                RecipeInfoLabel(imageName: recipe.glutenFree ? "glutenFree" : "gluten", 
+                                text: recipe.glutenFree ? "Gluten Free" : "not Gluten Free")
+                RecipeInfoLabel(imageName: recipe.dairyFree ? "dairyFree" : "dairy", 
+                                text: recipe.dairyFree ? "Dairy Free" : "not Dairy Free")
+                RecipeInfoLabel(imageName: recipe.vegetarian ? "vegetarian" : "notVegetarian", 
+                                text: recipe.vegetarian ? "Vegetarian" : "not Vegetarian")
+                RecipeInfoLabel(imageName: recipe.vegan ? "vegan" : "notVegan", 
+                                text: recipe.vegan ? "Vegan" : "not Vegan")
+                RecipeInfoLabel(imageName: recipe.veryHealthy ? "veryHealthy" : "notHealthy", 
+                                text: recipe.veryHealthy ? "Healthy" : "not Healthy")
 
 
                 Text("General Description:")

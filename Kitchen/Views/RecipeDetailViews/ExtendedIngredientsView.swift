@@ -17,7 +17,7 @@ struct ExtendedIngredientsView: View {
     }
 
     var body: some View {
-        if (!ingredients.isEmpty) {
+        if !ingredients.isEmpty {
             VStack(spacing: Spacing.spacing_2) {
                 // Goes over each of the steps and creates a LongText view to display all
                 // the steps of the recipe.
@@ -27,7 +27,7 @@ struct ExtendedIngredientsView: View {
                     .padding(Spacing.spacing_1)
                 Spacer()
                 ForEach(ingredients, id: \.self) { ingredient in
-                    HStack (spacing: Spacing.spacing_1){
+                    HStack(spacing: Spacing.spacing_1) {
                         Image(systemName: "circle.fill").imageScale(.small)
                         Text(ingredient.original)
                             .font(.body)
@@ -39,10 +39,8 @@ struct ExtendedIngredientsView: View {
             }
             .padding(.horizontal, Spacing.spacing_5)
 
-        }
-        else {
+        } else {
             Text("Unfortunately, our system could not find any ingredient information for this recipe.")
         }
-
     }
 }

@@ -9,7 +9,8 @@ import Foundation
 
 struct RandomRecipeDataSource {
 
-    private let baseURL = "https://api.spoonacular.com/recipes/random?apiKey=c2021be89a2f4899b11f1ab6d55c2cd8&includeNutrition=true."
+    private let baseURL = 
+    "https://api.spoonacular.com/recipes/random?apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true."
     var delegate: RandomRecipeDataSourceDelegate?
 
     func loadRandomRecipeData(){
@@ -30,15 +31,14 @@ struct RandomRecipeDataSource {
         // set header for JSON
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-
         // create a data task
-        let dataTask = session.dataTask(with: request) { data, response, error in
+        let dataTask = session.dataTask(with: request) { data, _, error in
             guard let data else {return}    // if the data is nil, return
 
             // print(String(decoding: data, as: UTF8.self))   // if you receive completion handler, do this
 
             let decoder = JSONDecoder()
-            do{
+            do {
                 let randomRecipeData = try decoder.decode(RandomRecipe.self, from: data)
                 // print(randomRecipeData)
 
@@ -47,7 +47,7 @@ struct RandomRecipeDataSource {
                     delegate?.randomRecipeDataLoaded(data: randomRecipeData)
                 }
             }
-            catch{
+            catch {
                 print(error)
             }
         }

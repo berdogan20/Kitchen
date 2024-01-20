@@ -22,14 +22,15 @@ class RecipeDetailViewModel: ObservableObject {
         dataSource.loadRecipeDetails(recipeID: recipeID)
     }
 
-    // I use this function to strip the HTML tags off the recipe summary, because the API provides us with an HTML tag filled summary.
+    // I use this function to strip the HTML tags off the recipe summary, 
+    // because the API provides us with an HTML tag filled summary.
     func stripHTMLTags(recipeDetail: Recipe) {
         self.recipe?.summary = recipeDetail.summary.stripHTML
         }
     }
 
 extension RecipeDetailViewModel: RecipeDetailDataSourceDelegate {
-    func RecipeDetailIsLoaded(recipeDetail: Recipe) {
+    func recipeDetailIsLoaded(recipeDetail: Recipe) {
         detailIsLoading = false
         self.recipe = recipeDetail
         self.recipeSteps = recipeDetail.analyzedInstructions
@@ -38,10 +39,10 @@ extension RecipeDetailViewModel: RecipeDetailDataSourceDelegate {
     }
 }
 
-// the way of stripping HTML tags from a string was found on: https://odenza.medium.com/how-to-stripping-html-tags-out-from-a-string-in-swift-23e3f7a2879a
+// the way of stripping HTML tags from a string was found 
+// on: https://odenza.medium.com/how-to-stripping-html-tags-out-from-a-string-in-swift-23e3f7a2879a
 extension String {
     var stripHTML: String {
         return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
     }
 }
-

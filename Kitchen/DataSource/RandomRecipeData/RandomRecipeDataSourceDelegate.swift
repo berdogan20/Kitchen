@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RandomRecipeDataSourceDelegate{
+protocol RandomRecipeDataSourceDelegate: AnyObject {
     func randomRecipeDataLoaded(data: RandomRecipe)
 }

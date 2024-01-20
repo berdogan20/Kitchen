@@ -24,20 +24,27 @@ struct RandomRecipeView: View {
         } else {
             if let recipe = viewModel.randomRecipe.recipes.first {
                 RecipeDetailView(recipeID: Int(recipe.id))
+                    .id(recipe.id)
+                refreshRecipeView
             }
         }
 
+    }
+
+    private var refreshRecipeView: some View {
+        Button(action: {
+            // Action to refresh and load a new random recipe
+            viewModel.loadRandomRecipeData()
+        }) {
+            Text("Refresh")
+                .foregroundColor(.white)
+                .padding()
+                .background(.purple)
+                .cornerRadius(Radius.radius_4)
         }
+    }
+
 }
-
-
-
-
-
-
-
-
-
 
 
 #Preview {

@@ -33,7 +33,10 @@ struct CategoriesView: View {
                             .foregroundColor(.white)
                             .multilineTextAlignment(.leading)
                             .padding(.all, Spacing.spacing_1)
-                            .opacity(0.9)
+                            .background(Color.black.opacity(0.7)) // Solid background color
+                                .cornerRadius(10)
+                                .padding(10)
+                                .opacity(0.9)
                             .bold()
                             .fixedSize(horizontal: false, vertical: true)
                             .frame(maxWidth: 400)

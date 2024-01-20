@@ -34,9 +34,11 @@ struct MealPlannerView: View {
                             Text("Calorie Goal: ")
                                 .padding(.leading)
                             Spacer()
-                            TextField(" Enter calorie goal", text: $viewModel.calorieGoal)
+                            TextField("Enter calorie goal", text: $viewModel.calorieGoal)
+                                .padding(.leading,5)
                                 .frame(width: 150, height: 31)
                                 .background(.white)
+                                .cornerRadius(8)
                                 .padding(.trailing)
                         }
                         .frame(height: 45)
@@ -49,7 +51,8 @@ struct MealPlannerView: View {
                             Spacer()
                             DietaryPreferanceView(selection: $viewModel.selectedPreference)
                                 .border(Color(Color.purple))
-                                .background(.white)
+                                .cornerRadius(10)
+                                .background(.purple)
                                 .padding(.trailing)
                         }
                         .frame(height: 45)

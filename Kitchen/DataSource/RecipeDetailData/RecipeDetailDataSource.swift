@@ -16,7 +16,7 @@ struct RecipeDetailDataSource {
         let session = URLSession.shared // Gets a shared URL session.
 
         // Creates a URL.
-        guard let url = URL(string: "\(baseURL)\(recipeID)/information?includeNutrition=false&apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8") else {return}
+        guard let url = URL(string: "\(baseURL)\(recipeID)/information?includeNutrition=false&apiKey=cb6d93abdd024912b01fe41d5639577d") else {return}
         var request = URLRequest(url: url) // Creates a URL request.
 
         request.httpMethod = "GET" // Specifies the http method.

@@ -16,7 +16,7 @@ struct MealPlannerDataSource {
         let session = URLSession.shared // Gets a shared URL session.
         let dietString = (diet == "No Diet") ? "" : "&diet=\(diet)"
         // Creates a URL.
-        guard let url = URL(string: "\(baseURL)?timeFrame=day&targetCalories=\(calories)\(dietString)&apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8") else {return}
+        guard let url = URL(string: "\(baseURL)?timeFrame=day&targetCalories=\(calories)\(dietString)&apiKey=cb6d93abdd024912b01fe41d5639577d") else {return}
         var request = URLRequest(url: url) // Creates a URL request.
 
         request.httpMethod = "GET" // Specifies the http method.

@@ -21,6 +21,7 @@ struct DietaryPreferanceView: View {
             }
             .pickerStyle(.menu)
             .frame(width: 150, height: 31)
+            .background(.white)
         }
     }
 }

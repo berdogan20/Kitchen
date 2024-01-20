@@ -40,7 +40,7 @@ struct MainView: View {
                     .environmentObject(AuthenticationViewModel())
             }
                     .tabItem {
-                        Label ("My Profile", systemImage: "person.crop.circle")
+                        Label("My Profile", systemImage: "person.crop.circle")
                     }
             }
         }

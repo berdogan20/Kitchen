@@ -37,11 +37,20 @@ struct RecipeDetailView: View {
                             // Top Bar
                             HStack {
                                 Spacer()
-                                TabButton(label: "General", systemImage: "fork.knife.circle", activeTab: $activeTab, tab: .general)
+                                TabButton(label: "General", 
+                                          systemImage: "fork.knife.circle",
+                                          activeTab: $activeTab,
+                                          tab: .general)
                                 Spacer()
-                                TabButton(label: "Ingredients", systemImage: "swatchpalette", activeTab: $activeTab, tab: .ingredients)
+                                TabButton(label: "Ingredients", 
+                                          systemImage: "swatchpalette",
+                                          activeTab: $activeTab,
+                                          tab: .ingredients)
                                 Spacer()
-                                TabButton(label: "Instructions", systemImage: "pencil.and.scribble", activeTab: $activeTab, tab: .instructions)
+                                TabButton(label: "Instructions", 
+                                          systemImage: "pencil.and.scribble",
+                                          activeTab: $activeTab,
+                                          tab: .instructions)
                                 Spacer()
                             }
                             .padding()
@@ -66,9 +75,6 @@ struct RecipeDetailView: View {
     }
 
 }
-
-
-
 
 struct TabButton: View {
     let label: String
@@ -128,9 +134,6 @@ struct RecipeImage: View {
     }
 }
 
-
-
-
 struct RecipeTabView: View {
     var body: some View {
         HStack  {
@@ -141,8 +144,6 @@ struct RecipeTabView: View {
     }
 }
 
-
 #Preview {
     RecipeDetailView(recipeID: 406722)
 }
-

@@ -23,5 +23,3 @@ struct LongText: View {
 #Preview {
     LongText(text: "Test")
 }
-
-

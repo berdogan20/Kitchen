@@ -13,11 +13,11 @@ class SimilarRecipeViewModel: ObservableObject {
     @Published var similarRecipes = SimilarRecipes()
     private var similarRecipesDataSource = SimilarRecipesDataSource()
 
-    init(){
+    init() {
         similarRecipesDataSource.delegate = self
     }
 
-    func loadSimilarRecipesData(recipeId: Int){
+    func loadSimilarRecipesData(recipeId: Int) {
         similarRecipesDataSource.loadSimilarRecipesData(recipeId: recipeId)
     }
 }
@@ -27,5 +27,4 @@ extension SimilarRecipeViewModel: SimilarRecipesDataSourceDelegate {
         isLoading = false
         similarRecipes = data
     }
-    
 }

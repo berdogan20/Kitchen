@@ -15,7 +15,7 @@ class IngredientsDataSource {
 
     func loadIngredientsData() {
         if let url = URL(string: baseUrl) {
-            let task = URLSession.shared.dataTask(with: url) { [self] (data, response, error) in
+            let task = URLSession.shared.dataTask(with: url) { [self] (data, _, error) in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                     return

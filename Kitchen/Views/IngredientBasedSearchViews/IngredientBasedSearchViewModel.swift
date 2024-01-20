@@ -17,11 +17,9 @@ class IngredientBasedSearchViewModel: ObservableObject {
         ingredientBasedSearchDataSource.delegate = self
     }
 
-    func loadIngredientBasedSearchData(searchIngredients: Set<IngredientItem>){
+    func loadIngredientBasedSearchData(searchIngredients: Set<IngredientItem>) {
         ingredientBasedSearchDataSource.loadIngredientBasedSearch(availableIngredients: searchIngredients)
     }
-
-
 }
 
 extension IngredientBasedSearchViewModel: IngredientBasedSearchDataSourceDelegate {
@@ -29,6 +27,4 @@ extension IngredientBasedSearchViewModel: IngredientBasedSearchDataSourceDelegat
         isLoading = false
         ingredientBasedSearch = data
     }
-
-
 }

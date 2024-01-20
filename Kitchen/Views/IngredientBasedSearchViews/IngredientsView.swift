@@ -15,7 +15,7 @@ struct IngredientsView: View {
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Ingredients are Coming!!!")
-                .onAppear(){
+                .onAppear() {
                     viewModel.loadIngredients()
                 }
         } else {
@@ -78,7 +78,6 @@ struct IngredientsView: View {
         }
     }
 
-
     struct BasketToggleButton: View {
         let isSelected: Bool
         let action: () -> Void
@@ -92,7 +91,6 @@ struct IngredientsView: View {
     }
 
 }
-
 
 struct IngredientsView_Previews: PreviewProvider {
     static var previews: some View {

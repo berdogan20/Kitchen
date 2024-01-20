@@ -16,7 +16,7 @@ struct Loading: View {
     }
 
     var body: some View {
-        VStack(spacing: Spacing.spacing_1){
+        VStack(spacing: Spacing.spacing_1) {
             ProgressView()
             Text(text)
         }

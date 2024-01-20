@@ -29,8 +29,6 @@ struct IngredientBasedSearchElement: Codable, Hashable, Equatable {
 
 typealias IngredientBasedSearch = [IngredientBasedSearchElement]
 
-
-
 // MARK: - SedIngredient
 struct SedIngredient: Codable {
     let id: Int
@@ -41,4 +39,3 @@ struct SedIngredient: Codable {
     let image: String
     let extendedName: String?
 }
-

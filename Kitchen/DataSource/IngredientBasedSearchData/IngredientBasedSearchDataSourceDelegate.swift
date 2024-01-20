@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol IngredientBasedSearchDataSourceDelegate{
+protocol IngredientBasedSearchDataSourceDelegate: AnyObject {
     func ingredientBasedSearchDataLoaded(data: IngredientBasedSearch)
 }

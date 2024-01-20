@@ -14,7 +14,7 @@ struct HomeView: View {
                 Image(systemName: "fork.knife")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 100 , height: 100)
+                    .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .clipped()
                     .padding(4)
@@ -23,13 +23,6 @@ struct HomeView: View {
                     .font(.title)
                 Text("You need to be logged in to use this app.")
             } content: {
-                // CategoriesView()
-                // RecipesByCategoryView()
-                //SimilarRecipeView()
-                // IngredientsView()
-                //RandomRecipeView()
-                // RecipeDetailView(recipeID: 715415)
-                // MealPlannerView()
                 Spacer()
             }
         }

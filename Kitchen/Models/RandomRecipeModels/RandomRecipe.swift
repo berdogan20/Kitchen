@@ -11,4 +11,3 @@ import Foundation
 struct RandomRecipe: Codable {
     let recipes: [Recipe]
 }
-

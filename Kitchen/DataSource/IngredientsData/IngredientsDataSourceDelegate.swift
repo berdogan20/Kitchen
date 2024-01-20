@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol IngredientsDataSourceDelegate{
+protocol IngredientsDataSourceDelegate: AnyObject {
     func ingredientsLoaded(data: Ingredients)
 }

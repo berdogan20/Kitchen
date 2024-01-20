@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RecipesByCategoryViewModel: ObservableObject{
+class RecipesByCategoryViewModel: ObservableObject {
 
     @Published var isLoading = true
     @Published var recipesByCategory = RecipesByCategory(results: [], offset: 0, number: 0, totalResults: 0)
@@ -17,11 +17,9 @@ class RecipesByCategoryViewModel: ObservableObject{
         recipesByCategoryDataSource.delegate = self
     }
 
-    func loadRecipeByCategoryData(query: String, offset: Int, number: Int){
+    func loadRecipeByCategoryData(query: String, offset: Int, number: Int) {
         recipesByCategoryDataSource.loadRecipesByCategoryData(query: query, offset: offset, number: number)
     }
-
-
 }
 
 extension RecipesByCategoryViewModel: RecipesByCategoryDataSourceDelegate {
@@ -29,6 +27,4 @@ extension RecipesByCategoryViewModel: RecipesByCategoryDataSourceDelegate {
         isLoading = false
         recipesByCategory = data
     }
-
-
 }

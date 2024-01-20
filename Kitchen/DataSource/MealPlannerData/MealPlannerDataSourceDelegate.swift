@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MealPlannerDataSourceDelegate{
+protocol MealPlannerDataSourceDelegate: AnyObject {
     func mealPlanLoaded(data: MealPlan)
 }

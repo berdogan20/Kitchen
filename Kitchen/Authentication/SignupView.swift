@@ -80,7 +80,6 @@ struct SignupView: View {
       .background(Divider(), alignment: .bottom)
       .padding(.bottom, 8)
 
-
       if !viewModel.errorMessage.isEmpty {
         VStack {
           Text(viewModel.errorMessage)
@@ -93,8 +92,7 @@ struct SignupView: View {
           Text("Sign up")
             .padding(.vertical, 8)
             .frame(maxWidth: .infinity)
-        }
-        else {
+        } else {
           ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .white))
             .padding(.vertical, 8)

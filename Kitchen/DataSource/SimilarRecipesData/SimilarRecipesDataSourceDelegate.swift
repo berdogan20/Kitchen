@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SimilarRecipesDataSourceDelegate{
+protocol SimilarRecipesDataSourceDelegate: AnyObject {
     func similarRecipesDataLoaded(data: SimilarRecipes)
 }

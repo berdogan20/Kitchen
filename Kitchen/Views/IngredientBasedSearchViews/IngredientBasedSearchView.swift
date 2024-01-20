@@ -70,7 +70,6 @@ struct IngredientBasedSearchView: View {
     }
 }
 
-
 #Preview {
     IngredientBasedSearchView(searchIngredients: [])
 }

@@ -20,7 +20,9 @@ struct IngredientBasedSearchDataSource {
         // create a URL
         // returns an optional String
         guard let url = 
-                URL(string: "\(baseURL)\(getIngredientsQuery(availableIngredients: availableIngredients))&apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true.")
+                URL(
+                    string:
+                        "\(baseURL)\(getIngredientsQuery(availableIngredients: availableIngredients))&apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true.")
         else {return}
 
         // create a URL request
@@ -47,8 +49,7 @@ struct IngredientBasedSearchDataSource {
                     // put to main thread
                     delegate?.ingredientBasedSearchDataLoaded(data: ingredientBasedSearchData)
                 }
-            }
-            catch {
+            } catch {
                 print(error)
             }
         }

@@ -16,7 +16,7 @@ struct RandomRecipeView: View {
         if viewModel.isLoading {
             Spacer()
             Loading(text: "Recipe is Coming!!!")
-                .onAppear() {
+                .onAppear {
                     viewModel.loadRandomRecipeData()
                 }
             Spacer()

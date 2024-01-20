@@ -11,7 +11,7 @@ struct MealPlannerView: View {
 
     @StateObject private var viewModel = MealPlannerViewModel()
     var body: some View {
-        ZStack{
+        ZStack {
             Color.clear
                 .background(
                     Image("mealPlanner")
@@ -35,7 +35,7 @@ struct MealPlannerView: View {
                                 .padding(.leading)
                             Spacer()
                             TextField("Enter calorie goal", text: $viewModel.calorieGoal)
-                                .padding(.leading,5)
+                                .padding(.leading, 5)
                                 .frame(width: 150, height: 31)
                                 .background(.white)
                                 .cornerRadius(8)
@@ -100,7 +100,6 @@ struct MealPlannerView: View {
     }
 }
 
-// TODO: ADD THE CALORIES SO THAT THE USER CAN SEE HOW MUCH IT IS!!!
 #Preview {
     MealPlannerView()
 }

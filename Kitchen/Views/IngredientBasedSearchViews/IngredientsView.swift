@@ -15,7 +15,7 @@ struct IngredientsView: View {
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Ingredients are Coming!!!")
-                .onAppear() {
+                .onAppear {
                     viewModel.loadIngredients()
                 }
         } else {
@@ -41,7 +41,7 @@ struct IngredientsView: View {
                             }
                             .listRowBackground(
                                 Capsule()
-                                    .fill(Color(white: 1, opacity:0.7))
+                                    .fill(Color(white: 1, opacity: 0.7))
                                     .padding(.vertical, 6)
                                     .padding(.horizontal, 1)
                                     .frame(height: 55)

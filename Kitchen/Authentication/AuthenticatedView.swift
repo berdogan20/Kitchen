@@ -26,7 +26,8 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
     self.content = content
   }
 
-  public init(@ViewBuilder unauthenticated: @escaping () -> Unauthenticated, @ViewBuilder content: @escaping () -> Content) {
+  public init(@ViewBuilder unauthenticated: @escaping () -> Unauthenticated,
+              @ViewBuilder content: @escaping () -> Content) {
     self.unauthenticated = unauthenticated()
     self.content = content
   }
@@ -37,8 +38,7 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
           VStack {
               if let unauthenticated {
                   unauthenticated
-              }
-              else {
+              } else {
                   Text("You're not logged in.")
               }
               Button("Tap here to log in") {
@@ -52,7 +52,7 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
               AuthenticationView()
                   .environmentObject(viewModel)
           }
-          
+
       case .authenticated:
           /*VStack {
            content()

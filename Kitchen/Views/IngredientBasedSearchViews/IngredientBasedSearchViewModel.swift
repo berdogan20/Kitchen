@@ -13,7 +13,7 @@ class IngredientBasedSearchViewModel: ObservableObject {
     @Published var ingredientBasedSearch = IngredientBasedSearch()
     private var ingredientBasedSearchDataSource = IngredientBasedSearchDataSource()
 
-    init(){
+    init() {
         ingredientBasedSearchDataSource.delegate = self
     }
 

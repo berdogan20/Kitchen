@@ -51,7 +51,7 @@ class AuthenticationViewModel: ObservableObject {
 
   func registerAuthStateHandler() {
     if authStateHandler == nil {
-      authStateHandler = Auth.auth().addStateDidChangeListener { auth, user in
+      authStateHandler = Auth.auth().addStateDidChangeListener { _, user in
         self.user = user
         self.authenticationState = user == nil ? .unauthenticated : .authenticated
         self.displayName = user?.email ?? ""
@@ -69,8 +69,7 @@ class AuthenticationViewModel: ObservableObject {
       print("Wait")
       try await Task.sleep(nanoseconds: 1_000_000_000)
       print("Done")
-    }
-    catch { }
+    } catch { }
   }
 
   func reset() {
@@ -97,7 +96,7 @@ extension AuthenticationViewModel {
 
   func signUpWithEmailPassword() async -> Bool {
     authenticationState = .authenticating
-    do  {
+    do {
       try await Auth.auth().createUser(withEmail: email, password: password)
       return true
     } catch {

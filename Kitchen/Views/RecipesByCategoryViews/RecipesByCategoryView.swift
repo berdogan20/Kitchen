@@ -19,7 +19,7 @@ struct RecipesByCategoryView: View {
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Recipes are Coming!!!")
-                .onAppear() {
+                .onAppear {
                     viewModel.loadRecipeByCategoryData(query: category, offset: offset, number: number)
                 }
         } else {
@@ -32,7 +32,7 @@ struct RecipesByCategoryView: View {
                             .frame(height: 400)
                             .clipped()
 
-                        VStack() {
+                        VStack {
                             Text(category)
                                 .font(.title)
                                 .bold()

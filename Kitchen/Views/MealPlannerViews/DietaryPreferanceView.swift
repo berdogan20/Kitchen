@@ -25,8 +25,6 @@ struct DietaryPreferanceView: View {
         }
     }
 }
-
-
 // #Preview {
     // DietaryPreferanceView(selection: "Gluten Free")
 // }

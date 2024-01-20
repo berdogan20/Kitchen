@@ -13,7 +13,7 @@ struct RandomRecipeDataSource {
     "https://api.spoonacular.com/recipes/random?apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true."
     var delegate: RandomRecipeDataSourceDelegate?
 
-    func loadRandomRecipeData(){
+    func loadRandomRecipeData() {
 
         // get shared URL session
         let session = URLSession.shared
@@ -46,8 +46,7 @@ struct RandomRecipeDataSource {
                     // put to main thread
                     delegate?.randomRecipeDataLoaded(data: randomRecipeData)
                 }
-            }
-            catch {
+            } catch {
                 print(error)
             }
         }

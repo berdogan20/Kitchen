@@ -19,7 +19,8 @@ struct RecipesByCategoryDataSource {
         // create a URL
         // returns an optional String
         guard let url = 
-                URL(string: "\(baseURL)\(query)&offset=\(offset)&number=\(number)&apiKey=cb6d93abdd024912b01fe41d5639577d")
+                URL(
+                    string: "\(baseURL)\(query)&offset=\(offset)&number=\(number)&apiKey=cb6d93abdd024912b01fe41d5639577d")
         else {return}
 
         // create a URL request
@@ -46,8 +47,7 @@ struct RecipesByCategoryDataSource {
                     // put to main thread
                     delegate?.recipesByCategoryDataLoaded(data: recipesByCaregoryData)
                 }
-            }
-            catch {
+            } catch {
                 print(error)
             }
         }

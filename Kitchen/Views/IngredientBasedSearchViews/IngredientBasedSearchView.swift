@@ -19,7 +19,7 @@ struct IngredientBasedSearchView: View {
     var body: some View {
         if viewModel.isLoading {
             Loading(text: "Recipes are Coming!!!")
-                .onAppear(){
+                .onAppear {
                     viewModel.loadIngredientBasedSearchData(searchIngredients: searchIngredients)
                 }
         } else {

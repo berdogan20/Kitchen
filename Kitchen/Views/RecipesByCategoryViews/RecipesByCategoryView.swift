@@ -33,7 +33,7 @@ struct RecipesByCategoryView: View {
                             .clipped()
 
                         VStack {
-                            Text(category)
+                            Text(category.capitalized)
                                 .font(.title)
                                 .bold()
                                 .foregroundColor(.white)
@@ -109,10 +109,9 @@ struct RecipesByCategoryView: View {
                     }
                     .foregroundColor(.basket)
                 }
-                .navigationTitle(category)
+                .navigationTitle(category.capitalized)
 
             }
-            .ignoresSafeArea()
         }
     }
 }

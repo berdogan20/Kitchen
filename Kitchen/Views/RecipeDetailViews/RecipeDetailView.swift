@@ -68,7 +68,8 @@ struct RecipeDetailView: View {
                             Spacer()
                         }
                     }
-                    .ignoresSafeArea(.all)
+                    .navigationTitle("Recipe")
+                    .navigationBarTitleDisplayMode(.inline)
                 }
             }
         }
@@ -115,6 +116,8 @@ struct RecipeImage: View {
                             Spacer()
                             Text(recipe?.title ?? "")
                                 .multilineTextAlignment(.leading)
+                                .lineLimit(3)
+                                .padding(.horizontal, Spacing.spacing_2)
                                 .frame(alignment: .leading)
                                 .foregroundColor(.white)
                                 .shadow(radius: Radius.radius_2)
@@ -145,5 +148,5 @@ struct RecipeTabView: View {
 }
 
 #Preview {
-    RecipeDetailView(recipeID: 406722)
+    RecipeDetailView(recipeID: 646071)
 }

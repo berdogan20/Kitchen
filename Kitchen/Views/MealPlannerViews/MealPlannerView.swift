@@ -92,11 +92,28 @@ struct MealPlannerView: View {
                                 }
                                 .padding() // Add padding around the scroll content
                             }
+
+                            refreshRecipeView
+                            Spacer()
                         }
                     }
                 }
             }
         }
+    }
+
+    private var refreshRecipeView: some View {
+        Button(action: {
+            // Action to refresh and load a new random recipe
+            viewModel.loadMealPlan()
+        }) {
+            Text("Refresh Meal Plan")
+                .foregroundColor(.black)
+                .padding()
+                .background(.purple)
+                .cornerRadius(Radius.radius_4)
+        }
+        .padding()
     }
 }
 

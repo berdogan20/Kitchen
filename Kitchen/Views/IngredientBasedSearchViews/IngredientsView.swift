@@ -72,7 +72,7 @@ struct IngredientsView: View {
                         .resizable()
                         .scaledToFill()
                         .blur(radius: 0.1)
-                        .edgesIgnoringSafeArea(.all)
+                        .edgesIgnoringSafeArea([.top, .leading, .trailing])
                 }
             }
         }

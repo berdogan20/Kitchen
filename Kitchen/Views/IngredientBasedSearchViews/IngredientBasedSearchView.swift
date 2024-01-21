@@ -23,7 +23,7 @@ struct IngredientBasedSearchView: View {
                     viewModel.loadIngredientBasedSearchData(searchIngredients: searchIngredients)
                 }
         } else {
-            NavigationView {
+            Group {
                 List(viewModel.ingredientBasedSearch, id: \.self) { recipe in
                     HStack(spacing: Spacing.spacing_2) {
                         NavigationLink(destination: RecipeDetailView(recipeID: recipe.id)) {
@@ -33,8 +33,9 @@ struct IngredientBasedSearchView: View {
                     }
                     .padding(.horizontal, Spacing.spacing_2) // Add horizontal padding
                 }
-                .navigationTitle("Recipes")
             }
+                .navigationTitle("Recipes")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 

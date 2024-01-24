@@ -29,6 +29,7 @@ struct CategoriesView: View {
                             .shadow(radius: Radius.radius_3)
                             .padding(.top, Spacing.spacing_5)
                         Spacer()
+                        // swiftlint:disable:next line_length
                         Text("Welcome to Your Kitchen, the Ultimate Hub for Culinary Adventures! Let's turn every meal into a masterpiece together! Get ready to stir, chop, and spice up your cooking journey!")
                             .foregroundColor(.white)
                             .multilineTextAlignment(.leading)

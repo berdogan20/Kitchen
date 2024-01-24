@@ -9,7 +9,7 @@ import Foundation
 
 struct RandomRecipeDataSource {
 
-    private let baseURL = 
+    private let baseURL =
     "https://api.spoonacular.com/recipes/random?apiKey=89b6faa459f74c5a9d8afac7107f9c4e&includeNutrition=true."
     var delegate: RandomRecipeDataSourceDelegate?
 

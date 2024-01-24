@@ -13,7 +13,8 @@ struct RecipeDetailView: View {
     enum ActiveView {
            case general, ingredients, instructions
     }
-    private let recipeID: Int // to instantiate a recipe screen, someone would need to inject the recipe ID, as the recipe ID is enough to call the API
+    private let recipeID: Int // to instantiate a recipe screen, someone would need to 
+    // inject the recipe ID, as the recipe ID is enough to call the API
 
     init(recipeID: Int) {
         self.recipeID = recipeID
@@ -84,9 +85,9 @@ struct TabButton: View {
     let tab: RecipeDetailView.ActiveView
 
     var body: some View {
-        Button(action: {
+        Button {
             activeTab = tab
-        }) {
+        } label: {
             VStack {
                 Image(systemName: systemImage)
                     .resizable()
@@ -139,7 +140,7 @@ struct RecipeImage: View {
 
 struct RecipeTabView: View {
     var body: some View {
-        HStack  {
+        HStack {
             Label("General", systemImage: "fork.knife.circle") // GeneralInfoView()
             Label("Ingredients", systemImage: "swatchpalette") // ExtendedIngredientsView()
             Label("Instructions", systemImage: "pencil.and.scribble")// AnalyzedInstructionsView()

@@ -16,9 +16,10 @@ struct MealPlannerDataSource {
         let session = URLSession.shared // Gets a shared URL session.
         let dietString = (diet == "No Diet") ? "" : "&diet=\(diet)"
         // Creates a URL.
-        guard let url = 
+        guard let url =
                 URL(
                     string:
+                        // swiftlint:disable:next line_length
                         "\(baseURL)?timeFrame=day&targetCalories=\(calories)\(dietString)&apiKey=cb6d93abdd024912b01fe41d5639577d")
         else {return}
         var request = URLRequest(url: url) // Creates a URL request.

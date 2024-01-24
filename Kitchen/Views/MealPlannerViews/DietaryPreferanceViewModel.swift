@@ -8,7 +8,7 @@
 import Foundation
 
 class DietaryPreferanceViewModel: ObservableObject {
-    
+
     // for graders to be able to grade easily, we will provide the array manually
     @Published var preferences: [String] = [
         "Gluten Free",
@@ -20,7 +20,7 @@ class DietaryPreferanceViewModel: ObservableObject {
         "No Diet"
     ]
 
-    /*private var filename = "/Users/yamacomur/Desktop/Fall 2023/COMP319B/Kitchen/Kitchen/Views/MealPlannerViews/preferences"
+    /*private var filename = "/Users/beyzaerdogan/Desktop/Kitchen/Kitchen/Views/MealPlannerViews/preferences"
     @Published var preferences: [String] = []
 
     init() {

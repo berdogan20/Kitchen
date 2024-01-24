@@ -60,7 +60,9 @@ struct UserProfileView: View {
         }
       }
       Section {
-        Button(role: .destructive, action: { presentingConfirmationDialog.toggle() }) {
+          Button(role: .destructive) {
+              presentingConfirmationDialog.toggle()
+          } label: {
           HStack {
             Spacer()
             Text("Delete Account")

@@ -19,9 +19,10 @@ struct IngredientBasedSearchDataSource {
 
         // create a URL
         // returns an optional String
-        guard let url = 
+        guard let url =
                 URL(
                     string:
+                        // swiftlint:disable:next line_length
                         "\(baseURL)\(getIngredientsQuery(availableIngredients: availableIngredients))&apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8&includeNutrition=true.")
         else {return}
 

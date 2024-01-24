@@ -105,7 +105,9 @@ struct SignupView: View {
 
       HStack {
         Text("Already have an account?")
-        Button(action: { viewModel.switchFlow() }) {
+        Button {
+              viewModel.switchFlow()
+          } label: {
           Text("Log in")
             .fontWeight(.semibold)
             .foregroundColor(.blue)

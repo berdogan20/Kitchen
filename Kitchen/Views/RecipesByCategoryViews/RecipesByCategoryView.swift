@@ -82,12 +82,12 @@ struct RecipesByCategoryView: View {
                     .padding(.horizontal, Spacing.spacing_2)
                     HStack {
                         Spacer()
-                        Button(action: {
+                        Button {
                             if offset >= number {
                                 offset -= number
                                 viewModel.loadRecipeByCategoryData(query: category, offset: offset, number: number)
                             }
-                        }) {
+                        } label: {
                             HStack {
                                 Image(systemName: "backward")
                                 Text("Previous")
@@ -95,10 +95,10 @@ struct RecipesByCategoryView: View {
                             .padding()
                         }
 
-                        Button(action: {
+                        Button {
                             offset += number
                             viewModel.loadRecipeByCategoryData(query: category, offset: offset, number: number)
-                        }) {
+                        } label: {
                             HStack {
                                 Text("Next")
                                 Image(systemName: "forward")

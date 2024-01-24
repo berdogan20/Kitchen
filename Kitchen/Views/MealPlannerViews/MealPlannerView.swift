@@ -11,7 +11,7 @@ struct MealPlannerView: View {
 
     @State private var showAlert = false
     @StateObject private var viewModel = MealPlannerViewModel()
-    
+
     var body: some View {
         ZStack {
             Color.clear
@@ -110,13 +110,13 @@ struct MealPlannerView: View {
     }
 
     private var createButtonView: some View {
-        Button(action: {
+        Button {
                 if !viewModel.calorieGoal.isEmpty {
                     viewModel.createMealPlan()
                 } else {
                     showAlert = true
                 }
-        }) {
+        } label: {
             Text("Create")
                 .foregroundStyle(.buttonText)
                 .bold()
@@ -124,6 +124,7 @@ struct MealPlannerView: View {
                 .padding(.vertical, Spacing.spacing_1)
         }
         .alert(isPresented: $showAlert) {
+            // swiftlint:disable:next line_length
             Alert(title: Text("Missing Calorie Goal"), message: Text("Please enter a calorie goal before creating a meal plan."), dismissButton: .default(Text("OK")))
             }
         .frame(height: 15)
@@ -140,10 +141,10 @@ struct MealPlannerView: View {
     }
 
     private var refreshRecipeView: some View {
-        Button(action: {
+        Button {
             // Action to refresh and load a new random recipe
             viewModel.loadMealPlan()
-        }) {
+        } label: {
             Text("Refresh Meal Plan")
                 .foregroundColor(.black)
                 .padding()

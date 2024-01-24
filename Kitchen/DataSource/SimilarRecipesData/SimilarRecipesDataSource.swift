@@ -19,8 +19,9 @@ struct SimilarRecipesDataSource {
 
         // create a URL
         // returns an optional String
-        guard let url = 
+        guard let url =
                 URL(
+                    // swiftlint:disable:next line_length
                     string: "\(baseURL)\(recipeId)/similar?apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true.")
         else {return}
 

@@ -22,7 +22,7 @@ struct IngredientBasedSearchDataSource {
         guard let url = 
                 URL(
                     string:
-                        "\(baseURL)\(getIngredientsQuery(availableIngredients: availableIngredients))&apiKey=cb6d93abdd024912b01fe41d5639577d&includeNutrition=true.")
+                        "\(baseURL)\(getIngredientsQuery(availableIngredients: availableIngredients))&apiKey=1ff1bdf6a5844a5bb5270a7fabc74fa8&includeNutrition=true.")
         else {return}
 
         // create a URL request

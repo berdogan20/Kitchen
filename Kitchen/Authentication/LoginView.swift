@@ -119,7 +119,9 @@ struct LoginView: View {
 
       HStack {
         Text("Don't have an account yet?")
-        Button(action: { viewModel.switchFlow() }) {
+          Button {
+              viewModel.switchFlow()
+          } label: {
           Text("Sign up")
             .fontWeight(.semibold)
             .foregroundColor(.blue)

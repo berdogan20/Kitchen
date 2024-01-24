@@ -31,10 +31,10 @@ struct RandomRecipeView: View {
     }
 
     private var refreshRecipeView: some View {
-        Button(action: {
+        Button {
             // Action to refresh and load a new random recipe
             viewModel.loadRandomRecipeData()
-        }) {
+        } label: {
             Text("Refresh")
                 .foregroundColor(.white)
                 .padding()

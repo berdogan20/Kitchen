@@ -72,31 +72,32 @@ struct RecipeStepView: View {
         // and if the name property is something else, then it is a supplementary component.
 
     var body: some View {
-            VStack(spacing: Spacing.spacing_2) {
-                ForEach(instructions.steps, id: \.self) { step in
-                    HStack(alignment: .top, spacing: Spacing.spacing_2) {
-                        Text("\(step.number).")
-                            .font(.headline)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 30, alignment: .leading)
+        VStack(spacing: Spacing.spacing_2) {
+            ForEach(Array(instructions.steps.enumerated()), id: \.offset) { index, step in
+                HStack(alignment: .top, spacing: Spacing.spacing_2) {
+                    Text("\(index + 1).") // Displaying index + 1 instead of step.number
+                        .font(.headline)
+                        .foregroundColor(.accentColor)
+                        .frame(width: 30, alignment: .leading)
 
-                        VStack(alignment: .leading, spacing: Spacing.spacing_1) {
-                            Text(step.step)
-                                .font(.body)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .frame(width: 250) // Fixed width for the step instructions
+                    VStack(alignment: .leading, spacing: Spacing.spacing_1) {
+                        Text(step.step)
+                            .font(.body)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    .padding(.horizontal, Spacing.spacing_3)
-                    .padding(.vertical, Spacing.spacing_2)
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .shadow(radius: 5)
-                    .frame(width: 300) // Fixed width for the entire step card
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    .frame(width: 250) // Fixed width for the step instructions
                 }
+                .padding(.horizontal, Spacing.spacing_3)
+                .padding(.vertical, Spacing.spacing_2)
+                .background(Color.white)
+                .cornerRadius(15)
+                .shadow(radius: 5)
+                .frame(width: 300) // Fixed width for the entire step card
             }
-            .padding(.bottom, Spacing.spacing_2)
         }
+        .padding(.bottom, Spacing.spacing_2)
+    }
+
 }

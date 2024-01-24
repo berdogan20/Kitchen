@@ -8,7 +8,19 @@
 import Foundation
 
 class DietaryPreferanceViewModel: ObservableObject {
-    private var filename = "/Users/yamacomur/Desktop/Fall 2023/COMP319B/Kitchen/Kitchen/Views/MealPlannerViews/preferences"
+    
+    // for graders to be able to grade easily, we will provide the array manually
+    @Published var preferences: [String] = [
+        "Gluten Free",
+        "Vegetarian",
+        "Ketogenic",
+        "Vegan",
+        "Pescetarian",
+        "Paleo",
+        "No Diet"
+    ]
+
+    /*private var filename = "/Users/yamacomur/Desktop/Fall 2023/COMP319B/Kitchen/Kitchen/Views/MealPlannerViews/preferences"
     @Published var preferences: [String] = []
 
     init() {
@@ -25,5 +37,5 @@ class DietaryPreferanceViewModel: ObservableObject {
         } catch {
             print("Error reading file:", error.localizedDescription)
         }
-    }
+    }*/
 }

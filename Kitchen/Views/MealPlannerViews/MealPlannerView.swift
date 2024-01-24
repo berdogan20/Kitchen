@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MealPlannerView: View {
 
+    @State private var showAlert = false
     @StateObject private var viewModel = MealPlannerViewModel()
+    
     var body: some View {
         ZStack {
             Color.clear
@@ -50,7 +52,7 @@ struct MealPlannerView: View {
                                 .padding(.leading)
                             Spacer()
                             DietaryPreferanceView(selection: $viewModel.selectedPreference)
-                                .border(Color(Color.purple))
+                                .border(Color.purple)
                                 .cornerRadius(10)
                                 .background(.purple)
                                 .padding(.trailing)
@@ -61,9 +63,33 @@ struct MealPlannerView: View {
                     }
                     .padding()
 
-                    ButtonDS(buttonTitle: "Create") {
-                        viewModel.createMealPlan()
-                    }
+                    Button(action: {
+                            if !viewModel.calorieGoal.isEmpty {
+                                viewModel.createMealPlan()
+                            } else {
+                                showAlert = true
+                            }
+                        }) {
+                            Text("Create")
+                                .foregroundStyle(.buttonText)
+                                .bold()
+                                .padding(.horizontal, Spacing.spacing_5)
+                                .padding(.vertical, Spacing.spacing_1)
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Missing Calorie Goal"), message: Text("Please enter a calorie goal before creating a meal plan."), dismissButton: .default(Text("OK")))
+                        }
+                        .frame(height: 15)
+                        .padding(.vertical, Spacing.spacing_2)
+                        .background(
+                            RoundedRectangle(cornerRadius: Radius.radius_4)
+                                .fill(Color.purple) // Set the background color directly
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: Radius.radius_4)
+                                        .stroke(.primary, lineWidth: 1)
+                                        .foregroundColor(.purple)
+                                )
+                        )
 
                     if viewModel.userCreated && viewModel.isLoading {
                         Loading(text: "Your meal plan is coming!!")

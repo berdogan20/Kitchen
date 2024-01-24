@@ -52,7 +52,7 @@ struct AnalyzedInstructionsView: View {
             }
         }
         .padding(Spacing.spacing_5)
-        .navigationTitle(recipe.title)
+        .navigationTitle("Recipe")
         .navigationBarTitleDisplayMode(.inline)
         Spacer()
     }

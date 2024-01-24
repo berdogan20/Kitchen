@@ -32,64 +32,12 @@ struct MealPlannerView: View {
                         .bold()
 
                     VStack {
-                        HStack(spacing: Spacing.spacing_1) {
-                            Text("Calorie Goal: ")
-                                .padding(.leading)
-                            Spacer()
-                            TextField("Enter calorie goal", text: $viewModel.calorieGoal)
-                                .padding(.leading, 5)
-                                .frame(width: 150, height: 31)
-                                .background(.white)
-                                .cornerRadius(8)
-                                .padding(.trailing)
-                        }
-                        .frame(height: 45)
-                        .background(.purple)
-                        .cornerRadius(Radius.radius_4)
-
-                        HStack(spacing: Spacing.spacing_1) {
-                            Text("Dietary Preference: ")
-                                .padding(.leading)
-                            Spacer()
-                            DietaryPreferanceView(selection: $viewModel.selectedPreference)
-                                .border(Color.purple)
-                                .cornerRadius(10)
-                                .background(.purple)
-                                .padding(.trailing)
-                        }
-                        .frame(height: 45)
-                        .background(.purple)
-                        .cornerRadius(Radius.radius_4)
+                        calorieGoalView
+                        dietaryPreferenceView
                     }
                     .padding()
 
-                    Button(action: {
-                            if !viewModel.calorieGoal.isEmpty {
-                                viewModel.createMealPlan()
-                            } else {
-                                showAlert = true
-                            }
-                        }) {
-                            Text("Create")
-                                .foregroundStyle(.buttonText)
-                                .bold()
-                                .padding(.horizontal, Spacing.spacing_5)
-                                .padding(.vertical, Spacing.spacing_1)
-                        }
-                        .alert(isPresented: $showAlert) {
-                            Alert(title: Text("Missing Calorie Goal"), message: Text("Please enter a calorie goal before creating a meal plan."), dismissButton: .default(Text("OK")))
-                        }
-                        .frame(height: 15)
-                        .padding(.vertical, Spacing.spacing_2)
-                        .background(
-                            RoundedRectangle(cornerRadius: Radius.radius_4)
-                                .fill(Color.purple) // Set the background color directly
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: Radius.radius_4)
-                                        .stroke(.primary, lineWidth: 1)
-                                        .foregroundColor(.purple)
-                                )
-                        )
+                    createButtonView
 
                     if viewModel.userCreated && viewModel.isLoading {
                         Loading(text: "Your meal plan is coming!!")
@@ -126,6 +74,69 @@ struct MealPlannerView: View {
                 }
             }
         }
+    }
+
+    private var calorieGoalView: some View {
+        HStack(spacing: Spacing.spacing_1) {
+            Text("Calorie Goal: ")
+                .padding(.leading)
+            Spacer()
+            TextField("Enter calorie goal", text: $viewModel.calorieGoal)
+                .padding(.leading, 5)
+                .frame(width: 150, height: 31)
+                .background(.white)
+                .cornerRadius(8)
+                .padding(.trailing)
+        }
+        .frame(height: 45)
+        .background(.purple)
+        .cornerRadius(Radius.radius_4)
+    }
+
+    private var dietaryPreferenceView: some View {
+        HStack(spacing: Spacing.spacing_1) {
+            Text("Dietary Preference: ")
+                .padding(.leading)
+            Spacer()
+            DietaryPreferanceView(selection: $viewModel.selectedPreference)
+                .border(Color.purple)
+                .cornerRadius(10)
+                .background(.purple)
+                .padding(.trailing)
+        }
+        .frame(height: 45)
+        .background(.purple)
+        .cornerRadius(Radius.radius_4)
+    }
+
+    private var createButtonView: some View {
+        Button(action: {
+                if !viewModel.calorieGoal.isEmpty {
+                    viewModel.createMealPlan()
+                } else {
+                    showAlert = true
+                }
+        }) {
+            Text("Create")
+                .foregroundStyle(.buttonText)
+                .bold()
+                .padding(.horizontal, Spacing.spacing_5)
+                .padding(.vertical, Spacing.spacing_1)
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Missing Calorie Goal"), message: Text("Please enter a calorie goal before creating a meal plan."), dismissButton: .default(Text("OK")))
+            }
+        .frame(height: 15)
+        .padding(.vertical, Spacing.spacing_2)
+        .background(
+            RoundedRectangle(cornerRadius: Radius.radius_4)
+                .fill(Color.purple) // Set the background color directly
+                .overlay(
+                    RoundedRectangle(cornerRadius: Radius.radius_4)
+                        .stroke(.primary, lineWidth: 1)
+                        .foregroundColor(.purple)
+                )
+        )
     }
 
     private var refreshRecipeView: some View {
